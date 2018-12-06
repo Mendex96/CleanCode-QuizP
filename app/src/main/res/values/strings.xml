@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="question_screen_title">Question Screen</string>
+    <string name="cheat_screen_title">Cheat Screen</string>
+</resources>
