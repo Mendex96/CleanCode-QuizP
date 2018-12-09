@@ -66,5 +66,8 @@ public class CheatActivity
 
     confirmationText.setText(viewModel.confirmationText);
     cheatText.setText(viewModel.cheatText);
+
+    yesButton.setEnabled(viewModel.yesButton);
+    noButton.setEnabled(viewModel.noButton);
   }
 }

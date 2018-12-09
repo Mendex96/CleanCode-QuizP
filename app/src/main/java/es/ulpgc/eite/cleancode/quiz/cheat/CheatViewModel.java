@@ -11,6 +11,9 @@ public class CheatViewModel extends ViewModel {
   public String yesLabel;
   public String noLabel;
 
+  public boolean yesButton = true;
+  public boolean noButton = true;
+
   public boolean answer;
 
 }

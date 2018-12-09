@@ -28,7 +28,7 @@ public class CheatRouter {
     mediator.setCheated(cheated);
   }
 
-  public boolean getDataFromPreviousScreen() {
+  public Boolean getDataFromPreviousScreen() {
     AppMediator mediator = (AppMediator) activity.get().getApplication();
     Boolean answer = mediator.getAnswer();
     return answer;

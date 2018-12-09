@@ -43,6 +43,9 @@ public class CheatPresenter implements CheatContract.Presenter {
       viewModel.cheatText = model.getFalseLabel();
     }
 
+    viewModel.yesButton = false;
+    viewModel.noButton = false;
+
     view.get().displayCheatData(viewModel);
   }
 

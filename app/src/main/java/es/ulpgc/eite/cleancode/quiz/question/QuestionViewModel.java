@@ -19,7 +19,7 @@ public class QuestionViewModel extends ViewModel {
   public boolean cheatButton = true;
   public boolean nextButton = false;
 
-  public Boolean answerCheated = false;
+  //public Boolean answerCheated = false;
   public int quizIndex = 0;
 }
 
