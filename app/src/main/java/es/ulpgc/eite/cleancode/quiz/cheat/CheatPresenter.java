@@ -18,11 +18,13 @@ public class CheatPresenter implements CheatContract.Presenter {
   public void fetchCheatData() {
     Log.e(TAG, "fetchCheatData()");
 
+    /*
     // set passed state
     Boolean currentAnswer = router.getDataFromPreviousScreen();
     if(currentAnswer != null) {
         viewModel.answer = currentAnswer;
     }
+    */
 
     // call the model
     viewModel.yesLabel = model.getYesLabel();
@@ -35,7 +37,9 @@ public class CheatPresenter implements CheatContract.Presenter {
 
   @Override
   public void yesButtonClicked() {
-    router.passDataToQuestionScreen(viewModel.answer);
+
+    /*
+    router.passDataToQuestionScreen(true);
 
     if(viewModel.answer) {
       viewModel.cheatText = model.getTrueLabel();
@@ -47,10 +51,32 @@ public class CheatPresenter implements CheatContract.Presenter {
     viewModel.noButton = false;
 
     view.get().displayCheatData(viewModel);
+    */
+
+    // set passed state
+    Boolean answer = router.getDataFromPreviousScreen();
+    if(answer != null) {
+
+      router.passDataToQuestionScreen(true);
+
+      if(answer) {
+        viewModel.cheatText = model.getTrueLabel();
+      } else {
+        viewModel.cheatText = model.getFalseLabel();
+      }
+
+      viewModel.yesButton = false;
+      viewModel.noButton = false;
+
+      view.get().displayCheatData(viewModel);
+    }
+
+
   }
 
   @Override
   public void noButtonClicked() {
+    router.passDataToQuestionScreen(false);
     router.navigateToQuestionScreen();
   }
 

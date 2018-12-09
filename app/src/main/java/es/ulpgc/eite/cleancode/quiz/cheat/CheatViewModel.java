@@ -14,7 +14,7 @@ public class CheatViewModel extends ViewModel {
   public boolean yesButton = true;
   public boolean noButton = true;
 
-  public boolean answer;
+  //public boolean answer;
 
 }
 

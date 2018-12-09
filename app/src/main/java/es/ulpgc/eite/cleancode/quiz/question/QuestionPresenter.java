@@ -22,8 +22,13 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Boolean cheated = router.getDataFromCheatScreen();
     if(cheated != null) {
         //viewModel.answerCheated = cheated;
-        nextButtonClicked();
-        return;
+        //nextButtonClicked();
+        //return;
+
+        if(cheated){
+          nextButtonClicked();
+          return;
+        }
     }
 
     // call the model
