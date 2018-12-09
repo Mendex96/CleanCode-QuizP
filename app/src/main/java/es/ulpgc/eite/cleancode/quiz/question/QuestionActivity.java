@@ -66,15 +66,15 @@ public class QuestionActivity
       }
     });
 
+    // do the setup
+    QuestionConfigurator.INSTANCE.configure(this);
+
   }
 
 
   @Override
   protected void onResume() {
     super.onResume();
-
-    // do the setup
-    QuestionConfigurator.INSTANCE.configure(this);
 
     // do some work
     presenter.fetchQuestionData();
