@@ -31,8 +31,8 @@ public class QuestionActivity
     falseButton = findViewById(R.id.falseButton);
     cheatButton = findViewById(R.id.cheatButton);
     nextButton = findViewById(R.id.nextButton);
-    questionText = findViewById(R.id.confirmationText);
-    answerText = findViewById(R.id.cheatText);
+    questionText = findViewById(R.id.questionText);
+    answerText = findViewById(R.id.answerText);
 
     trueButton.setOnClickListener(new View.OnClickListener() {
 
