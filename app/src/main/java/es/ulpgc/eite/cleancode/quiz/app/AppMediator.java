@@ -7,6 +7,7 @@ public class AppMediator extends Application {
   private Boolean answer;
   private Boolean cheated;
 
+
   public void setAnswer(Boolean status) {
     answer = status;
   }
