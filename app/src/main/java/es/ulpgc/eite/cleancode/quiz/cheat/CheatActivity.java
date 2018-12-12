@@ -49,12 +49,17 @@ public class CheatActivity
     });
 
     // do the setup
-    CheatConfigurator.INSTANCE.configure(this);
+    CheatScreen.configure(this);
 
     // do some work
     presenter.fetchCheatData();
   }
 
+
+  @Override
+  public void injectPresenter(CheatContract.Presenter presenter) {
+    this.presenter = presenter;
+  }
 
   @Override
   public void displayCheatData(CheatViewModel viewModel) {

@@ -9,10 +9,32 @@ public class CheatPresenter implements CheatContract.Presenter {
 
   public static String TAG = CheatPresenter.class.getSimpleName();
 
+  /*
   public WeakReference<CheatContract.View> view;
   public CheatViewModel viewModel;
   public CheatContract.Model model;
   public CheatRouter router;
+  */
+
+  private WeakReference<CheatContract.View> view;
+  private CheatViewModel viewModel;
+  private CheatContract.Model model;
+  private CheatContract.Router router;
+
+  public CheatPresenter(CheatViewModel viewModel, CheatContract.Router router) {
+    this.viewModel = viewModel;
+    this.router = router;
+  }
+
+  @Override
+  public void injectView(WeakReference<CheatContract.View> view) {
+    this.view = view;
+  }
+
+  @Override
+  public void injectModel(CheatContract.Model model) {
+    this.model = model;
+  }
 
   @Override
   public void fetchCheatData() {

@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -63,12 +64,19 @@ public class QuestionModel implements QuestionContract.Model {
   private String nextLabel = "Next";
 
 
-  private WeakReference<QuestionActivity> activity;
+  //private WeakReference<QuestionActivity> activity;
+  private WeakReference<FragmentActivity> activity;
 
-
+  /*
   public QuestionModel(WeakReference<QuestionActivity> activity) {
     this.activity = activity;
   }
+  */
+
+  public QuestionModel(WeakReference<FragmentActivity> activity) {
+    this.activity = activity;
+  }
+
 
   @Override
   public String getCheatLabel() {

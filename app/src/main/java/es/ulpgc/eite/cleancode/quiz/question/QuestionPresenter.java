@@ -9,10 +9,34 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   public static String TAG = QuestionPresenter.class.getSimpleName();
 
+  private WeakReference<QuestionContract.View> view;
+  private QuestionViewModel viewModel;
+  private QuestionContract.Model model;
+  private QuestionContract.Router router;
+
+  /*
   public WeakReference<QuestionContract.View> view;
   public QuestionViewModel viewModel;
   public QuestionContract.Model model;
   public QuestionRouter router;
+  */
+
+  public QuestionPresenter(
+      QuestionViewModel viewModel, QuestionContract.Router router) {
+
+    this.viewModel = viewModel;
+    this.router = router;
+  }
+
+  @Override
+  public void injectView(WeakReference<QuestionContract.View> view) {
+    this.view = view;
+  }
+
+  @Override
+  public void injectModel(QuestionContract.Model model) {
+    this.model = model;
+  }
 
   @Override
   public void fetchQuestionData() {

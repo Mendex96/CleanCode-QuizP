@@ -67,7 +67,7 @@ public class QuestionActivity
     });
 
     // do the setup
-    QuestionConfigurator.INSTANCE.configure(this);
+    QuestionScreen.configure(this);
 
   }
 
@@ -78,6 +78,11 @@ public class QuestionActivity
 
     // do some work
     presenter.fetchQuestionData();
+  }
+
+  @Override
+  public void injectPresenter(QuestionContract.Presenter presenter) {
+    this.presenter = presenter;
   }
 
   @Override

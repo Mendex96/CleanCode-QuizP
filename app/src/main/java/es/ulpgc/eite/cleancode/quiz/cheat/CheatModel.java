@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.quiz.cheat;
 
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -14,9 +15,16 @@ public class CheatModel implements CheatContract.Model {
   private String falseLabel = "False";
   private String trueLabel = "True";
 
-  private WeakReference<CheatActivity> activity;
+  //private WeakReference<CheatActivity> activity;
+  private WeakReference<FragmentActivity> activity;
 
+  /*
   public CheatModel(WeakReference<CheatActivity> activity) {
+    this.activity = activity;
+  }
+  */
+
+  public CheatModel(WeakReference<FragmentActivity> activity) {
     this.activity = activity;
   }
 

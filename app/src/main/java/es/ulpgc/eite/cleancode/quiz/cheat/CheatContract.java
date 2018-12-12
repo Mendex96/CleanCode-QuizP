@@ -1,12 +1,19 @@
 package es.ulpgc.eite.cleancode.quiz.cheat;
 
+import java.lang.ref.WeakReference;
+
 interface CheatContract {
 
   interface View {
+    void injectPresenter(Presenter presenter);
+
     void displayCheatData(CheatViewModel viewModel);
   }
 
   interface Presenter {
+    void injectView(WeakReference<View> view);
+    void injectModel(Model model);
+
     void fetchCheatData();
     void yesButtonClicked();
     void noButtonClicked();
@@ -18,5 +25,13 @@ interface CheatContract {
     String getConfirmationLabel();
     String getFalseLabel();
     String getTrueLabel();
+  }
+
+  interface Router {
+
+    void navigateToQuestionScreen();
+    void navigateToNextScreen();
+    void passDataToQuestionScreen(Boolean cheated);
+    Boolean getDataFromPreviousScreen();
   }
 }
