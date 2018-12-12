@@ -16,7 +16,7 @@ public class CheatModel implements CheatContract.Model {
   private String trueLabel = "True";
 
   //private WeakReference<CheatActivity> activity;
-  private WeakReference<FragmentActivity> activity;
+  private WeakReference<FragmentActivity> context;
 
   /*
   public CheatModel(WeakReference<CheatActivity> activity) {
@@ -24,8 +24,8 @@ public class CheatModel implements CheatContract.Model {
   }
   */
 
-  public CheatModel(WeakReference<FragmentActivity> activity) {
-    this.activity = activity;
+  public CheatModel(WeakReference<FragmentActivity> context) {
+    this.context = context;
   }
 
   @Override

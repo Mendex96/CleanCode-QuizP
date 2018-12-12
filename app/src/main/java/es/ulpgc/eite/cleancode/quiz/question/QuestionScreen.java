@@ -11,16 +11,16 @@ public class QuestionScreen {
 
   public static void configure(QuestionContract.View view) {
 
-    WeakReference<FragmentActivity> activity =
+    WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
     QuestionViewModel viewModel =
-        ViewModelProviders.of(activity.get()).get(QuestionViewModel.class);
+        ViewModelProviders.of(context.get()).get(QuestionViewModel.class);
 
-    QuestionContract.Router router = new QuestionRouter(activity);
+    QuestionContract.Router router = new QuestionRouter(context);
     QuestionContract.Presenter presenter =
         new QuestionPresenter(viewModel, router);
-    QuestionModel model = new QuestionModel(activity);
+    QuestionModel model = new QuestionModel(context);
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
     view.injectPresenter(presenter);

@@ -10,15 +10,15 @@ public class CheatScreen {
 
   public static void configure(CheatContract.View view) {
 
-    WeakReference<FragmentActivity> activity =
+    WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
     CheatViewModel viewModel = 
-        ViewModelProviders.of(activity.get()).get(CheatViewModel.class);
+        ViewModelProviders.of(context.get()).get(CheatViewModel.class);
     
-    CheatContract.Router router = new CheatRouter(activity);
+    CheatContract.Router router = new CheatRouter(context);
     CheatContract.Presenter presenter = new CheatPresenter(viewModel, router);
-    CheatModel model = new CheatModel(activity);
+    CheatModel model = new CheatModel(context);
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
     view.injectPresenter(presenter);

@@ -65,7 +65,7 @@ public class QuestionModel implements QuestionContract.Model {
 
 
   //private WeakReference<QuestionActivity> activity;
-  private WeakReference<FragmentActivity> activity;
+  private WeakReference<FragmentActivity> context;
 
   /*
   public QuestionModel(WeakReference<QuestionActivity> activity) {
@@ -73,8 +73,8 @@ public class QuestionModel implements QuestionContract.Model {
   }
   */
 
-  public QuestionModel(WeakReference<FragmentActivity> activity) {
-    this.activity = activity;
+  public QuestionModel(WeakReference<FragmentActivity> context) {
+    this.context = context;
   }
 
 

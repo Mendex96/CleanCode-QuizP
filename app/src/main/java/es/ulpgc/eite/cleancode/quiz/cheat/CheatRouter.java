@@ -13,33 +13,33 @@ public class CheatRouter implements CheatContract.Router {
   public static String TAG = CheatRouter.class.getSimpleName();
 
   //public WeakReference<CheatActivity> activity;
-  private WeakReference<FragmentActivity> activity;
+  private WeakReference<FragmentActivity> context;
 
-  public CheatRouter(WeakReference<FragmentActivity> activity) {
-    this.activity = activity;
+  public CheatRouter(WeakReference<FragmentActivity> context) {
+    this.context = context;
   }
 
 
   @Override
   public void navigateToQuestionScreen() {
-    activity.get().finish();
+    context.get().finish();
   }
 
   @Override
   public void navigateToNextScreen() {
-    Intent intent = new Intent(activity.get(), CheatActivity.class);
-    activity.get().startActivity(intent);
+    Intent intent = new Intent(context.get(), CheatActivity.class);
+    context.get().startActivity(intent);
   }
 
   @Override
   public void passDataToQuestionScreen(Boolean cheated) {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
+    AppMediator mediator = (AppMediator) context.get().getApplication();
     mediator.setCheated(cheated);
   }
 
   @Override
   public Boolean getDataFromPreviousScreen() {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
+    AppMediator mediator = (AppMediator) context.get().getApplication();
     Boolean answer = mediator.getAnswer();
     return answer;
   }
