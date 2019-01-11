@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -21,11 +23,19 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public QuestionRouter router;
   */
 
+  /*
   public QuestionPresenter(
       QuestionViewModel viewModel, QuestionContract.Router router) {
 
     this.viewModel = viewModel;
     this.router = router;
+  }
+  */
+
+  public QuestionPresenter(WeakReference<FragmentActivity> context) {
+    viewModel = ViewModelProviders
+        .of(context.get())
+        .get(QuestionViewModel.class);
   }
 
   @Override
@@ -36,6 +46,11 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   @Override
   public void injectModel(QuestionContract.Model model) {
     this.model = model;
+  }
+
+  @Override
+  public void injectRouter(QuestionContract.Router router) {
+    this.router = router;
   }
 
   @Override

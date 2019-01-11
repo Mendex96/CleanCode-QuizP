@@ -14,6 +14,7 @@ interface QuestionContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
+    void injectRouter(Router router);
 
     void fetchQuestionData();
     void trueButtonClicked();

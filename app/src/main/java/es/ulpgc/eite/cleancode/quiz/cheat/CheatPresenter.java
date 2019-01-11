@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.quiz.cheat;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -21,9 +23,17 @@ public class CheatPresenter implements CheatContract.Presenter {
   private CheatContract.Model model;
   private CheatContract.Router router;
 
+  /*
   public CheatPresenter(CheatViewModel viewModel, CheatContract.Router router) {
     this.viewModel = viewModel;
     this.router = router;
+  }
+  */
+
+  public CheatPresenter(WeakReference<FragmentActivity> context) {
+    viewModel = ViewModelProviders
+        .of(context.get())
+        .get(CheatViewModel.class);
   }
 
   @Override
@@ -34,6 +44,11 @@ public class CheatPresenter implements CheatContract.Presenter {
   @Override
   public void injectModel(CheatContract.Model model) {
     this.model = model;
+  }
+
+  @Override
+  public void injectRouter(CheatContract.Router router) {
+    this.router = router;
   }
 
   @Override

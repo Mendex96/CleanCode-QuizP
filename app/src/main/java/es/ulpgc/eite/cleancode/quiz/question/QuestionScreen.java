@@ -14,15 +14,21 @@ public class QuestionScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
+    /*
     QuestionViewModel viewModel =
         ViewModelProviders.of(context.get()).get(QuestionViewModel.class);
+    */
 
     QuestionContract.Router router = new QuestionRouter(context);
+    /*
     QuestionContract.Presenter presenter =
         new QuestionPresenter(viewModel, router);
+    */
+    QuestionContract.Presenter presenter = new QuestionPresenter(context);
     QuestionModel model = new QuestionModel(context);
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
+    presenter.injectRouter(router);
     view.injectPresenter(presenter);
 
   }

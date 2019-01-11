@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
 
 import java.lang.ref.WeakReference;
 
+
 interface CheatContract {
 
   interface View {
@@ -13,6 +14,7 @@ interface CheatContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
+    void injectRouter(Router router);
 
     void fetchCheatData();
     void yesButtonClicked();
