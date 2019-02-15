@@ -17,7 +17,7 @@ public class CheatActivity
 
   CheatContract.Presenter presenter;
 
-  TextView confirmationText, cheatText;
+  TextView confirmationText, answerText;
   Button yesButton, noButton;
 
   @Override
@@ -30,7 +30,7 @@ public class CheatActivity
     yesButton = findViewById(R.id.yesButton);
     noButton = findViewById(R.id.noButton);
     confirmationText = findViewById(R.id.confirmationText);
-    cheatText = findViewById(R.id.cheatText);
+    answerText = findViewById(R.id.answerText);
 
     yesButton.setOnClickListener(new View.OnClickListener() {
 
@@ -70,7 +70,7 @@ public class CheatActivity
     noButton.setText(viewModel.noLabel);
 
     confirmationText.setText(viewModel.confirmationText);
-    cheatText.setText(viewModel.cheatText);
+    answerText.setText(viewModel.answerText);
 
     yesButton.setEnabled(viewModel.yesButton);
     noButton.setEnabled(viewModel.noButton);

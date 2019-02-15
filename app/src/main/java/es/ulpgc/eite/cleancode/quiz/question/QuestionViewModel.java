@@ -10,7 +10,7 @@ public class QuestionViewModel extends ViewModel {
   public String nextLabel;
 
   public String questionText;
-  public String answerText = "";
+  public String resultText = "";
 
   public boolean falseButton = true;
   public boolean trueButton = true;

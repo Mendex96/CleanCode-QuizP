@@ -17,7 +17,7 @@ public class QuestionActivity
 
   QuestionContract.Presenter presenter;
 
-  TextView questionText, answerText;
+  TextView questionText, resultText;
   Button trueButton, falseButton, cheatButton, nextButton;
 
   @Override
@@ -32,7 +32,7 @@ public class QuestionActivity
     cheatButton = findViewById(R.id.cheatButton);
     nextButton = findViewById(R.id.nextButton);
     questionText = findViewById(R.id.questionText);
-    answerText = findViewById(R.id.answerText);
+    resultText = findViewById(R.id.resultText);
 
     trueButton.setOnClickListener(new View.OnClickListener() {
 
@@ -96,7 +96,7 @@ public class QuestionActivity
     nextButton.setText(viewModel.nextLabel);
 
     questionText.setText(viewModel.questionText);
-    answerText.setText(viewModel.answerText);
+    resultText.setText(viewModel.resultText);
 
     trueButton.setEnabled(viewModel.trueButton);
     falseButton.setEnabled(viewModel.falseButton);

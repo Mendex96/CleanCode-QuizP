@@ -6,14 +6,9 @@ import android.support.test.espresso.ViewInteraction;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import es.ulpgc.eite.cleancode.quiz.R;
+
 import es.ulpgc.eite.cleancode.quiz.question.QuestionActivity;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,7 +61,7 @@ public class QuestionActivityTest {
         textView2.check(matches(withText("Christian Bale played Batman in 'The Dark Knight Rises'?")));
 
         ViewInteraction textView3 = onView(
-                allOf(withId(R.id.answerText), withText("Correct!"),
+                allOf(withId(R.id.resultText), withText("Correct!"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -117,7 +112,7 @@ public class QuestionActivityTest {
         textView5.check(matches(withText("The Gremlins movie was released in 1986?")));
 
         ViewInteraction textView6 = onView(
-                allOf(withId(R.id.answerText), withText("Incorrect!"),
+                allOf(withId(R.id.resultText), withText("Incorrect!"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -140,7 +135,7 @@ public class QuestionActivityTest {
 
 
         ViewInteraction textView7 = onView(
-                allOf(withId(R.id.answerText), withText("Incorrect!"),
+                allOf(withId(R.id.resultText), withText("Incorrect!"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -201,7 +196,7 @@ public class QuestionActivityTest {
         textView10.check(matches(withText("Brad Pitt played Danny Ocean in Ocean's Eleven, Ocean's Twelve and Ocean's Thirteen?")));
 
         ViewInteraction textView11 = onView(
-                allOf(withId(R.id.answerText), withText("Correct!"),
+                allOf(withId(R.id.resultText), withText("Correct!"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -233,7 +228,7 @@ public class QuestionActivityTest {
         textView12.check(matches(withText("Brad Pitt played Danny Ocean in Ocean's Eleven, Ocean's Twelve and Ocean's Thirteen?")));
 
         ViewInteraction textView13 = onView(
-                allOf(withId(R.id.answerText), withText("Correct!"),
+                allOf(withId(R.id.resultText), withText("Correct!"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

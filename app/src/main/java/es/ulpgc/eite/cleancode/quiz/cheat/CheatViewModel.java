@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel;
 // implementation 'android.arch.lifecycle:extensions:1.1.1'
 public class CheatViewModel extends ViewModel {
 
-  public String cheatText = "";
+  public String answerText = "";
   public String confirmationText;
   public String yesLabel;
   public String noLabel;

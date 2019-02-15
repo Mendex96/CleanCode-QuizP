@@ -79,9 +79,9 @@ public class CheatPresenter implements CheatContract.Presenter {
     router.passDataToQuestionScreen(true);
 
     if(viewModel.answer) {
-      viewModel.cheatText = model.getTrueLabel();
+      viewModel.answerText = model.getTrueLabel();
     } else {
-      viewModel.cheatText = model.getFalseLabel();
+      viewModel.answerText = model.getFalseLabel();
     }
 
     viewModel.yesButton = false;
@@ -97,9 +97,9 @@ public class CheatPresenter implements CheatContract.Presenter {
       router.passDataToQuestionScreen(true);
 
       if(answer) {
-        viewModel.cheatText = model.getTrueLabel();
+        viewModel.answerText = model.getTrueLabel();
       } else {
-        viewModel.cheatText = model.getFalseLabel();
+        viewModel.answerText = model.getFalseLabel();
       }
 
       viewModel.yesButton = false;

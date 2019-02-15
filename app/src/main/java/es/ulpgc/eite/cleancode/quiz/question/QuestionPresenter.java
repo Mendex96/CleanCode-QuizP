@@ -85,9 +85,9 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     boolean currentAnswer = model.getCurrentAnswer(viewModel.quizIndex);
 
     if(currentAnswer == userAnswer) {
-      viewModel.answerText = model.getCorrectLabel();
+      viewModel.resultText = model.getCorrectLabel();
     } else {
-      viewModel.answerText = model.getIncorrectLabel();
+      viewModel.resultText = model.getIncorrectLabel();
     }
 
     viewModel.falseButton = false;
@@ -128,7 +128,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     viewModel.quizIndex++;
 
     viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
-    viewModel.answerText = "";
+    viewModel.resultText = "";
 
     viewModel.falseButton = true;
     viewModel.trueButton = true;

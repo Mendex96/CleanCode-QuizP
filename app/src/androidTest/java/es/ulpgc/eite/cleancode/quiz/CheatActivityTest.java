@@ -6,15 +6,10 @@ import android.support.test.espresso.ViewInteraction;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import es.ulpgc.eite.cleancode.quiz.R;
+
 import es.ulpgc.eite.cleancode.quiz.cheat.CheatActivity;
 import es.ulpgc.eite.cleancode.quiz.question.QuestionActivity;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -168,7 +163,7 @@ public class CheatActivityTest {
         appCompatButton6.perform(click());
 
         ViewInteraction textView3 = onView(
-                allOf(withId(R.id.cheatText), withText("False"),
+                allOf(withId(R.id.answerText), withText("False"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -189,7 +184,7 @@ public class CheatActivityTest {
 
 
         ViewInteraction textView4 = onView(
-                allOf(withId(R.id.cheatText), withText("False"),
+                allOf(withId(R.id.answerText), withText("False"),
                         /*childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
