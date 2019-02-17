@@ -63,14 +63,14 @@ public class QuestionModel implements QuestionContract.Model {
   };
   */
 
-  /*
+
   private String falseLabel = "False";
   private String trueLabel = "True";
   private String correctLabel = "Correct!";
   private String incorrectLabel = "Incorrect!";
   private String cheatLabel = "Cheat";
   private String nextLabel = "Next";
-  */
+
 
   //private int quizIndex = 0;
   //private String resultText = "";
@@ -104,21 +104,30 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getCheatLabel() {
-    //return cheatLabel;
+    if(context.get() == null) {
+      return cheatLabel;
+    }
+
     return context.get()
         .getResources().getString(R.string.cheat_label);
   }
 
   @Override
   public String getNextLabel() {
-    //return nextLabel;
+    if(context.get() == null) {
+      return nextLabel;
+    }
+
     return context.get()
         .getResources().getString(R.string.next_label);
   }
 
   @Override
   public String getFalseLabel() {
-    //return falseLabel;
+    if(context.get() == null) {
+      return falseLabel;
+    }
+
     return context.get()
         .getResources().getString(R.string.false_label);
   }
@@ -126,7 +135,10 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getTrueLabel() {
-    //return trueLabel;
+    if(context.get() == null) {
+      return trueLabel;
+    }
+
     return context.get()
         .getResources().getString(R.string.true_label);
   }
