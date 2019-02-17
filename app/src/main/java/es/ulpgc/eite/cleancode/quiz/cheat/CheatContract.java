@@ -3,7 +3,7 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
 import java.lang.ref.WeakReference;
 
 
-interface CheatContract {
+public interface CheatContract {
 
   interface View {
     void injectPresenter(Presenter presenter);

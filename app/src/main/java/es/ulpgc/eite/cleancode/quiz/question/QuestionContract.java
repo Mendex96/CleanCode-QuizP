@@ -3,7 +3,7 @@ package es.ulpgc.eite.cleancode.quiz.question;
 import java.lang.ref.WeakReference;
 
 
-interface QuestionContract {
+public interface QuestionContract {
 
   interface View {
     void injectPresenter(Presenter presenter);
@@ -28,19 +28,21 @@ interface QuestionContract {
     String getCheatLabel();
     String getNextLabel();
     String getFalseLabel();
-    String getIncorrectLabel();
-    String getCorrectLabel();
+    //String getIncorrectLabel();
+    //String getCorrectLabel();
 
-    String getCurrentQuestion(int quizIndex);
-    boolean getCurrentAnswer(int quizIndex);
-    boolean isQuizFinished(int quizIndex);
+    //String getCurrentQuestion(int quizIndex);
+    //boolean getCurrentAnswer(int quizIndex);
+    //boolean isQuizFinished(int quizIndex);
 
-    /*
+
     String getCurrentQuestion();
     boolean getCurrentAnswer();
     boolean isQuizFinished();
     void incrQuizIndex();
-    */
+    //void checkCurrentAnswer(boolean answer);
+    //String getCurrentResult();
+    String getCurrentResult(boolean answer);
   }
 
   interface Router {

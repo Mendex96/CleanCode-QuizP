@@ -1,6 +1,10 @@
 package es.ulpgc.eite.cleancode.quiz.data;
 
-public class QuizRepository implements AppRepository {
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+
+public class QuizRepository extends Fragment implements AppRepository {
 
   private String[] quizQuestions = {
       "Christian Bale played Batman in 'The Dark Knight Rises'?", // 1
@@ -48,6 +52,11 @@ public class QuizRepository implements AppRepository {
       true // 20
   };
 
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setRetainInstance(true);
+  }
 
   @Override
   public String[] getQuestions() {

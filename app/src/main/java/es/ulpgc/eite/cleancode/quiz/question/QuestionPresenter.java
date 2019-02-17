@@ -75,41 +75,47 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     viewModel.falseLabel = model.getFalseLabel();
     viewModel.cheatLabel = model.getCheatLabel();
     viewModel.nextLabel = model.getNextLabel();
-    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
-    //viewModel.questionText = model.getCurrentQuestion();
+    //viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
+    viewModel.questionText = model.getCurrentQuestion();
 
     view.get().displayQuestionData(viewModel);
 
   }
 
   private void updateQuestionData(boolean userAnswer) {
-    boolean currentAnswer = model.getCurrentAnswer(viewModel.quizIndex);
-    //boolean currentAnswer = model.getCurrentAnswer();
+    /*
+    //boolean currentAnswer = model.getCurrentAnswer(viewModel.quizIndex);
+    boolean currentAnswer = model.getCurrentAnswer();
 
     if(currentAnswer == userAnswer) {
       viewModel.resultText = model.getCorrectLabel();
     } else {
       viewModel.resultText = model.getIncorrectLabel();
     }
+    */
+
+    //model.checkCurrentAnswer(userAnswer);
+    //viewModel.resultText = model.getCurrentResult();
+    viewModel.resultText = model.getCurrentResult(userAnswer);
 
     viewModel.falseButton = false;
     viewModel.trueButton = false;
     viewModel.cheatButton = false;
 
-
+    /*
     if(model.isQuizFinished(viewModel.quizIndex)) {
       viewModel.nextButton = false;
     } else {
       viewModel.nextButton = true;
     }
+    */
 
-    /*
     if(model.isQuizFinished()) {
       viewModel.nextButton = false;
     } else {
       viewModel.nextButton = true;
     }
-    */
+
 
     view.get().displayQuestionData(viewModel);
   }
@@ -127,8 +133,8 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   @Override
   public void cheatButtonClicked() {
-    boolean answer = model.getCurrentAnswer(viewModel.quizIndex);
-    //boolean answer = model.getCurrentAnswer();
+    //boolean answer = model.getCurrentAnswer(viewModel.quizIndex);
+    boolean answer = model.getCurrentAnswer();
     router.passDataToCheatScreen(answer);
     router.navigateToCheatScreen();
   }
@@ -137,11 +143,11 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public void nextButtonClicked() {
     Log.e(TAG, "nextButtonClicked()");
 
-    viewModel.quizIndex++;
-    //model.incrQuizIndex();
+    //viewModel.quizIndex++;
+    model.incrQuizIndex();
 
-    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
-    //viewModel.questionText = model.getCurrentQuestion();
+    //viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
+    viewModel.questionText = model.getCurrentQuestion();
     viewModel.resultText = "";
 
     viewModel.falseButton = true;
