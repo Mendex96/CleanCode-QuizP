@@ -33,12 +33,12 @@ public interface QuestionContract {
 
     //String getCurrentQuestion(int quizIndex);
     //boolean getCurrentAnswer(int quizIndex);
-    //boolean isQuizFinished(int quizIndex);
+    //boolean isLastIndex(int quizIndex);
 
 
     String getCurrentQuestion();
     boolean getCurrentAnswer();
-    boolean isQuizFinished();
+    boolean isLastQuestion();
     void incrQuizIndex();
     //void checkCurrentAnswer(boolean answer);
     //String getCurrentResult();

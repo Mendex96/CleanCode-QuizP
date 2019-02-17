@@ -25,11 +25,13 @@ public class CheatRouter implements CheatContract.Router {
     context.get().finish();
   }
 
+  /*
   @Override
   public void navigateToNextScreen() {
     Intent intent = new Intent(context.get(), CheatActivity.class);
     context.get().startActivity(intent);
   }
+  */
 
   @Override
   public void passDataToQuestionScreen(Boolean cheated) {

@@ -103,14 +103,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     viewModel.cheatButton = false;
 
     /*
-    if(model.isQuizFinished(viewModel.quizIndex)) {
+    if(model.isLastIndex(viewModel.quizIndex)) {
       viewModel.nextButton = false;
     } else {
       viewModel.nextButton = true;
     }
     */
 
-    if(model.isQuizFinished()) {
+    if(model.isLastQuestion()) {
       viewModel.nextButton = false;
     } else {
       viewModel.nextButton = true;

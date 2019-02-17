@@ -1,20 +1,19 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.quiz.R;
-import es.ulpgc.eite.cleancode.quiz.data.AppRepository;
 import es.ulpgc.eite.cleancode.quiz.data.QuizRepository;
+import es.ulpgc.eite.cleancode.quiz.data.QuizFragment;
 
 public class QuestionModel implements QuestionContract.Model {
 
   public static String TAG = QuestionModel.class.getSimpleName();
 
-  private static String FRAGMENT_TAG = "QuizRepository";
+  private static String FRAGMENT_TAG = "QuizFragment";
 
   /*
   private String[] quizQuestions = {
@@ -73,12 +72,12 @@ public class QuestionModel implements QuestionContract.Model {
   private String nextLabel = "Next";
   */
 
-  private int quizIndex = 0;
-  private String resultText = "";
+  //private int quizIndex = 0;
+  //private String resultText = "";
 
   //private WeakReference<QuestionActivity> activity;
   private WeakReference<FragmentActivity> context;
-  private AppRepository repository;
+  private QuizRepository repository;
 
   /*
   public QuestionModel(WeakReference<QuestionActivity> activity) {
@@ -89,16 +88,17 @@ public class QuestionModel implements QuestionContract.Model {
   public QuestionModel(WeakReference<FragmentActivity> context) {
     this.context = context;
 
-    //repository = new QuizRepository();
+    //repository = new QuizFragment();
 
     FragmentManager fm = context.get().getSupportFragmentManager();
-    repository= (QuizRepository) fm.findFragmentByTag(FRAGMENT_TAG);
-
-    if(repository == null) {
-      repository = new QuizRepository();
-      fm.beginTransaction().add((Fragment) repository, FRAGMENT_TAG).commit();
+    QuizFragment fragment = (QuizFragment) fm.findFragmentByTag(FRAGMENT_TAG);
+    if(fragment == null) {
+      fragment = new QuizFragment();
+      fm.beginTransaction().add(fragment, FRAGMENT_TAG).commit();
 
     }
+
+    repository = fragment;
   }
 
 
@@ -133,26 +133,34 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getCurrentQuestion() {
-    String[] quizQuestions = repository.getQuestions();
-    return quizQuestions[quizIndex];
+    //String[] quizQuestions = repository.getQuestions();
+    //return quizQuestions[quizIndex];
+    return repository.getQuestion();
   }
 
   @Override
   public boolean getCurrentAnswer() {
-    boolean[] quizAnswers = repository.getAnswers();
-    return quizAnswers[quizIndex];
+    //boolean[] quizAnswers = repository.getAnswers();
+    //return quizAnswers[quizIndex];
+    return repository.getAnswer();
   }
 
   @Override
-  public boolean isQuizFinished() {
+  public boolean isLastQuestion() {
+    return repository.isLastIndex();
+  }
+
+  /*
+  @Override
+  public boolean isLastIndex() {
     String[] quizQuestions = repository.getQuestions();
     if(quizIndex == quizQuestions.length-1){
       return true;
     }
 
-
     return false;
   }
+  */
 
   /*
   @Override
@@ -168,7 +176,7 @@ public class QuestionModel implements QuestionContract.Model {
   }
 
   @Override
-  public boolean isQuizFinished(int quizIndex) {
+  public boolean isLastIndex(int quizIndex) {
     String[] quizQuestions = repository.getQuestions();
     if(quizIndex == quizQuestions.length-1){
       return true;
@@ -194,7 +202,8 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public void incrQuizIndex() {
-    quizIndex++;
+    //quizIndex++;
+    repository.incrIndex();
   }
 
   @Override

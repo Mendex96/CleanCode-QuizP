@@ -25,14 +25,15 @@ public interface CheatContract {
     String getYesLabel();
     String getNoLabel();
     String getConfirmationLabel();
-    String getFalseLabel();
-    String getTrueLabel();
+    //String getFalseLabel();
+    //String getTrueLabel();
+    String getAnswerLabel(Boolean answer);
   }
 
   interface Router {
 
     void navigateToQuestionScreen();
-    void navigateToNextScreen();
+    //void navigateToNextScreen();
     void passDataToQuestionScreen(Boolean cheated);
     Boolean getDataFromPreviousScreen();
   }

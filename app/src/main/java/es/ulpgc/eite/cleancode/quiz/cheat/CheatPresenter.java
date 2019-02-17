@@ -96,11 +96,15 @@ public class CheatPresenter implements CheatContract.Presenter {
 
       router.passDataToQuestionScreen(true);
 
+      /*
       if(answer) {
         viewModel.answerText = model.getTrueLabel();
       } else {
         viewModel.answerText = model.getFalseLabel();
       }
+      */
+
+      viewModel.answerText = model.getAnswerLabel(answer);
 
       viewModel.yesButton = false;
       viewModel.noButton = false;
