@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
@@ -72,6 +73,7 @@ public class QuestionModel implements QuestionContract.Model {
   private String nextLabel = "Next";
 
 
+
   //private int quizIndex = 0;
   //private String resultText = "";
 
@@ -84,6 +86,7 @@ public class QuestionModel implements QuestionContract.Model {
     this.activity = activity;
   }
   */
+
 
   public QuestionModel(WeakReference<FragmentActivity> context) {
     this.context = context;
@@ -104,9 +107,11 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getCheatLabel() {
+    /*
     if(context.get() == null) {
       return cheatLabel;
     }
+    */
 
     return context.get()
         .getResources().getString(R.string.cheat_label);
@@ -114,9 +119,11 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getNextLabel() {
+    /*
     if(context.get() == null) {
       return nextLabel;
     }
+    */
 
     return context.get()
         .getResources().getString(R.string.next_label);
@@ -124,20 +131,46 @@ public class QuestionModel implements QuestionContract.Model {
 
   @Override
   public String getFalseLabel() {
+    /*
     if(context.get() == null) {
       return falseLabel;
     }
+    */
 
     return context.get()
         .getResources().getString(R.string.false_label);
   }
 
 
+  private String getIncorrectLabel() {
+    /*
+    if(context.get() == null) {
+      return incorrectLabel;
+    }
+    */
+
+    return context.get()
+        .getResources().getString(R.string.incorrect_label);
+  }
+
+  private String getCorrectLabel() {
+    /*
+    if(context.get() == null) {
+      return correctLabel;
+    }
+    */
+
+    return context.get()
+        .getResources().getString(R.string.correct_label);
+  }
+
   @Override
   public String getTrueLabel() {
+    /*
     if(context.get() == null) {
       return trueLabel;
     }
+    */
 
     return context.get()
         .getResources().getString(R.string.true_label);
@@ -198,18 +231,6 @@ public class QuestionModel implements QuestionContract.Model {
     return false;
   }
   */
-
-  private String getIncorrectLabel() {
-    //return incorrectLabel;
-    return context.get()
-        .getResources().getString(R.string.incorrect_label);
-  }
-
-  private String getCorrectLabel() {
-    //return correctLabel;
-    return context.get()
-        .getResources().getString(R.string.correct_label);
-  }
 
 
   @Override
