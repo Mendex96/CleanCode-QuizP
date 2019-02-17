@@ -35,6 +35,12 @@ interface QuestionContract {
     boolean getCurrentAnswer(int quizIndex);
     boolean isQuizFinished(int quizIndex);
 
+    /*
+    String getCurrentQuestion();
+    boolean getCurrentAnswer();
+    boolean isQuizFinished();
+    void incrQuizIndex();
+    */
   }
 
   interface Router {

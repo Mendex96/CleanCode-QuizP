@@ -2,7 +2,6 @@ package es.ulpgc.eite.cleancode.quiz.question;
 
 import java.lang.ref.WeakReference;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.FragmentActivity;
 
 

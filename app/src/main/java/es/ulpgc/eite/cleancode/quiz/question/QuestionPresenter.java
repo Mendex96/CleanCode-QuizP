@@ -76,6 +76,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     viewModel.cheatLabel = model.getCheatLabel();
     viewModel.nextLabel = model.getNextLabel();
     viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
+    //viewModel.questionText = model.getCurrentQuestion();
 
     view.get().displayQuestionData(viewModel);
 
@@ -83,6 +84,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   private void updateQuestionData(boolean userAnswer) {
     boolean currentAnswer = model.getCurrentAnswer(viewModel.quizIndex);
+    //boolean currentAnswer = model.getCurrentAnswer();
 
     if(currentAnswer == userAnswer) {
       viewModel.resultText = model.getCorrectLabel();
@@ -94,11 +96,20 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     viewModel.trueButton = false;
     viewModel.cheatButton = false;
 
+
     if(model.isQuizFinished(viewModel.quizIndex)) {
       viewModel.nextButton = false;
     } else {
       viewModel.nextButton = true;
     }
+
+    /*
+    if(model.isQuizFinished()) {
+      viewModel.nextButton = false;
+    } else {
+      viewModel.nextButton = true;
+    }
+    */
 
     view.get().displayQuestionData(viewModel);
   }
@@ -117,6 +128,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   @Override
   public void cheatButtonClicked() {
     boolean answer = model.getCurrentAnswer(viewModel.quizIndex);
+    //boolean answer = model.getCurrentAnswer();
     router.passDataToCheatScreen(answer);
     router.navigateToCheatScreen();
   }
@@ -126,8 +138,10 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "nextButtonClicked()");
 
     viewModel.quizIndex++;
+    //model.incrQuizIndex();
 
     viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
+    //viewModel.questionText = model.getCurrentQuestion();
     viewModel.resultText = "";
 
     viewModel.falseButton = true;

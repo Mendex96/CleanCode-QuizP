@@ -1,15 +1,19 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.cleancode.quiz.R;
+import es.ulpgc.eite.cleancode.quiz.data.AppRepository;
+import es.ulpgc.eite.cleancode.quiz.data.QuizRepository;
 
 public class QuestionModel implements QuestionContract.Model {
 
   public static String TAG = QuestionModel.class.getSimpleName();
 
 
+  /*
   private String[] quizQuestions = {
       "Christian Bale played Batman in 'The Dark Knight Rises'?", // 1
       "The Gremlins movie was released in 1986?",  // 2
@@ -55,17 +59,22 @@ public class QuestionModel implements QuestionContract.Model {
 //      false, // 19
       true // 20
   };
+  */
 
+  /*
   private String falseLabel = "False";
   private String trueLabel = "True";
   private String correctLabel = "Correct!";
   private String incorrectLabel = "Incorrect!";
   private String cheatLabel = "Cheat";
   private String nextLabel = "Next";
+  */
 
+  //private int quizIndex = 0;
 
   //private WeakReference<QuestionActivity> activity;
   private WeakReference<FragmentActivity> context;
+  private final AppRepository repository;
 
   /*
   public QuestionModel(WeakReference<QuestionActivity> activity) {
@@ -75,59 +84,107 @@ public class QuestionModel implements QuestionContract.Model {
 
   public QuestionModel(WeakReference<FragmentActivity> context) {
     this.context = context;
+
+    repository = new QuizRepository();
   }
 
 
   @Override
   public String getCheatLabel() {
-    return cheatLabel;
+    //return cheatLabel;
+    return context.get()
+        .getResources().getString(R.string.cheat_label);
   }
 
   @Override
   public String getNextLabel() {
-    return nextLabel;
+    //return nextLabel;
+    return context.get()
+        .getResources().getString(R.string.next_label);
   }
 
   @Override
   public String getFalseLabel() {
-    return falseLabel;
+    //return falseLabel;
+    return context.get()
+        .getResources().getString(R.string.false_label);
   }
 
 
   @Override
   public String getTrueLabel() {
-    return trueLabel;
+    //return trueLabel;
+    return context.get()
+        .getResources().getString(R.string.true_label);
+  }
+
+  /*
+  @Override
+  public String getCurrentQuestion() {
+    String[] quizQuestions = repository.getQuestions();
+    return quizQuestions[quizIndex];
   }
 
   @Override
+  public boolean getCurrentAnswer() {
+    boolean[] quizAnswers = repository.getAnswers();
+    return quizAnswers[quizIndex];
+  }
+
+  @Override
+  public boolean isQuizFinished() {
+    String[] quizQuestions = repository.getQuestions();
+    if(quizIndex == quizQuestions.length-1){
+      return true;
+    }
+
+
+    return false;
+  }
+  */
+
+  @Override
   public String getCurrentQuestion(int quizIndex) {
+    String[] quizQuestions = repository.getQuestions();
     return quizQuestions[quizIndex];
   }
 
   @Override
   public boolean getCurrentAnswer(int quizIndex) {
+    boolean[] quizAnswers = repository.getAnswers();
     return quizAnswers[quizIndex];
   }
 
-
-  @Override
-  public String getIncorrectLabel() {
-    return incorrectLabel;
-  }
-
-  @Override
-  public String getCorrectLabel() {
-    return correctLabel;
-  }
-
-
   @Override
   public boolean isQuizFinished(int quizIndex) {
+    String[] quizQuestions = repository.getQuestions();
     if(quizIndex == quizQuestions.length-1){
       return true;
     }
 
+
     return false;
   }
+
+  @Override
+  public String getIncorrectLabel() {
+    //return incorrectLabel;
+    return context.get()
+        .getResources().getString(R.string.incorrect_label);
+  }
+
+  @Override
+  public String getCorrectLabel() {
+    //return correctLabel;
+    return context.get()
+        .getResources().getString(R.string.correct_label);
+  }
+
+  /*
+  @Override
+  public void incrQuizIndex() {
+    quizIndex++;
+  }
+  */
 
 }

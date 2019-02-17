@@ -2,4 +2,12 @@
     <string name="app_name">Quiz</string>
     <string name="question_screen_title">Question Screen</string>
     <string name="cheat_screen_title">Cheat Screen</string>
+
+    <string name="false_label">False</string>
+    <string name="true_label">Quiz</string>
+    <string name="correct_label">Correct!</string>
+    <string name="incorrect_label">Incorrect!</string>
+    <string name="cheat_label">Cheat</string>
+    <string name="next_label">Next</string>
+
 </resources>
