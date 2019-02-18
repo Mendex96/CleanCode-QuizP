@@ -1,20 +1,12 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
-import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-
-import java.lang.ref.WeakReference;
-
-import es.ulpgc.eite.cleancode.quiz.R;
-import es.ulpgc.eite.cleancode.quiz.data.QuizRepository;
-import es.ulpgc.eite.cleancode.quiz.data.QuizFragment;
+import es.ulpgc.eite.cleancode.quiz.app.AppRepository;
 
 public class QuestionModel implements QuestionContract.Model {
 
   public static String TAG = QuestionModel.class.getSimpleName();
 
-  private static String FRAGMENT_TAG = "QuizFragment";
+  //private static String FRAGMENT_TAG = "QuizRepository";
 
   /*
   private String[] quizQuestions = {
@@ -64,22 +56,22 @@ public class QuestionModel implements QuestionContract.Model {
   };
   */
 
-
+  /*
   private String falseLabel = "False";
   private String trueLabel = "True";
   private String correctLabel = "Correct!";
   private String incorrectLabel = "Incorrect!";
   private String cheatLabel = "Cheat";
   private String nextLabel = "Next";
-
+  */
 
 
   //private int quizIndex = 0;
   //private String resultText = "";
 
   //private WeakReference<QuestionActivity> activity;
-  private WeakReference<FragmentActivity> context;
-  private QuizRepository repository;
+  //private WeakReference<FragmentActivity> context;
+  private AppRepository repository;
 
   /*
   public QuestionModel(WeakReference<QuestionActivity> activity) {
@@ -87,94 +79,105 @@ public class QuestionModel implements QuestionContract.Model {
   }
   */
 
+  /*
+  public QuestionModel(){
+    repository = new QuizRepository();
+  }
+  */
 
+  public QuestionModel(AppRepository repository) {
+    this.repository = repository;
+  }
+
+  /*
   public QuestionModel(WeakReference<FragmentActivity> context) {
     this.context = context;
 
-    //repository = new QuizFragment();
+    //repository = new QuizRepository();
 
     FragmentManager fm = context.get().getSupportFragmentManager();
-    QuizFragment fragment = (QuizFragment) fm.findFragmentByTag(FRAGMENT_TAG);
+    QuizRepository fragment = (QuizRepository) fm.findFragmentByTag(FRAGMENT_TAG);
     if(fragment == null) {
-      fragment = new QuizFragment();
+      fragment = new QuizRepository();
       fm.beginTransaction().add(fragment, FRAGMENT_TAG).commit();
 
     }
 
     repository = fragment;
   }
+  */
 
 
-  @Override
-  public String getCheatLabel() {
-    /*
-    if(context.get() == null) {
-      return cheatLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.cheat_label);
-  }
-
-  @Override
-  public String getNextLabel() {
-    /*
-    if(context.get() == null) {
-      return nextLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.next_label);
-  }
-
-  @Override
-  public String getFalseLabel() {
-    /*
-    if(context.get() == null) {
-      return falseLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.false_label);
-  }
-
-
-  private String getIncorrectLabel() {
-    /*
-    if(context.get() == null) {
-      return incorrectLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.incorrect_label);
-  }
-
-  private String getCorrectLabel() {
-    /*
-    if(context.get() == null) {
-      return correctLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.correct_label);
-  }
-
-  @Override
-  public String getTrueLabel() {
-    /*
-    if(context.get() == null) {
-      return trueLabel;
-    }
-    */
-
-    return context.get()
-        .getResources().getString(R.string.true_label);
-  }
+//  @Override
+//  public String getCheatLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return cheatLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.cheat_label);
+//  }
+//
+//  @Override
+//  public String getNextLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return nextLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.next_label);
+//  }
+//
+//  @Override
+//  public String getFalseLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return falseLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.false_label);
+//  }
+//
+//
+//  private String getIncorrectLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return incorrectLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.incorrect_label);
+//  }
+//
+//  private String getCorrectLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return correctLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.correct_label);
+//  }
+//
+//  @Override
+//  public String getTrueLabel() {
+//    /*
+//    if(context.get() == null) {
+//      return trueLabel;
+//    }
+//    */
+//
+//    return context.get()
+//        .getResources().getString(R.string.true_label);
+//  }
 
   @Override
   public String getCurrentQuestion() {
@@ -240,6 +243,12 @@ public class QuestionModel implements QuestionContract.Model {
   }
 
   @Override
+  public void setCurrentIndex(int index) {
+    repository.setIndex(index);
+  }
+
+  /*
+  @Override
   public String getCurrentResult(boolean answer) {
 
     if(getCurrentAnswer() == answer) {
@@ -248,6 +257,7 @@ public class QuestionModel implements QuestionContract.Model {
       return getIncorrectLabel();
     }
   }
+  */
 
   /*
   @Override

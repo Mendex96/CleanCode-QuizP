@@ -5,6 +5,8 @@ import java.lang.ref.WeakReference;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.FragmentActivity;
 
+import es.ulpgc.eite.cleancode.quiz.app.AppMediator;
+
 public class CheatScreen {
 
 
@@ -13,17 +15,23 @@ public class CheatScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
+    AppMediator mediator = (AppMediator) context.get().getApplication();
+    CheatState state = mediator.getCheatState();
+
     /*
     CheatViewModel viewModel = 
         ViewModelProviders.of(context.get()).get(CheatViewModel.class);
     */
     
-    CheatContract.Router router = new CheatRouter(context);
+    //CheatContract.Router router = new CheatRouter(context);
+    CheatContract.Router router = new CheatRouter(mediator);
     //CheatContract.Presenter presenter = new CheatPresenter(viewModel, router);
-    CheatContract.Presenter presenter = new CheatPresenter(context);
-    CheatModel model = new CheatModel(context);
+    //CheatContract.Presenter presenter = new CheatPresenter(context);
+    CheatContract.Presenter presenter = new CheatPresenter(state);
+    //CheatModel model = new CheatModel(context);
+    //CheatModel model = new CheatModel();
     presenter.injectView(new WeakReference<>(view));
-    presenter.injectModel(model);
+    //presenter.injectModel(model);
     presenter.injectRouter(router);
     view.injectPresenter(presenter);
 

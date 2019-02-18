@@ -2,6 +2,10 @@ package es.ulpgc.eite.cleancode.quiz.question;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.quiz.app.CheatToQuestionState;
+import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
+import es.ulpgc.eite.cleancode.quiz.question.mocks.MockQuestionActivity;
+
 
 public interface QuestionContract {
 
@@ -9,6 +13,8 @@ public interface QuestionContract {
     void injectPresenter(Presenter presenter);
 
     void displayQuestionData(QuestionViewModel viewModel);
+    String getIncorrectLabel();
+    String getCorrectLabel();
   }
 
   interface Presenter {
@@ -21,15 +27,19 @@ public interface QuestionContract {
     void falseButtonClicked();
     void cheatButtonClicked();
     void nextButtonClicked();
+
   }
 
   interface Model {
+    //String getIncorrectLabel();
+    //String getCorrectLabel();
+
+    /*
     String getTrueLabel();
     String getCheatLabel();
     String getNextLabel();
     String getFalseLabel();
-    //String getIncorrectLabel();
-    //String getCorrectLabel();
+    */
 
     //String getCurrentQuestion(int quizIndex);
     //boolean getCurrentAnswer(int quizIndex);
@@ -40,15 +50,18 @@ public interface QuestionContract {
     boolean getCurrentAnswer();
     boolean isLastQuestion();
     void incrQuizIndex();
+    void setCurrentIndex(int index);
     //void checkCurrentAnswer(boolean answer);
     //String getCurrentResult();
-    String getCurrentResult(boolean answer);
+    //String getCurrentResult(boolean answer);
   }
 
   interface Router {
 
     void navigateToCheatScreen();
-    void passDataToCheatScreen(boolean answer);
-    Boolean getDataFromCheatScreen();
+    //void passDataToCheatScreen(boolean answer);
+    void passDataToCheatScreen(QuestionToCheatState state);
+    CheatToQuestionState getDataFromCheatScreen();
+    //Boolean getDataFromCheatScreen();
   }
 }

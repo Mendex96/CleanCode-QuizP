@@ -1,6 +1,6 @@
-package es.ulpgc.eite.cleancode.quiz.data;
+package es.ulpgc.eite.cleancode.quiz.app;
 
-public interface QuizRepository {
+public interface AppRepository {
 
   //String[] getQuestions();
   //boolean[] getAnswers();
@@ -8,4 +8,5 @@ public interface QuizRepository {
   boolean getAnswer();
   void incrIndex();
   boolean isLastIndex();
+  void setIndex(int index);
 }

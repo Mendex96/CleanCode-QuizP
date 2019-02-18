@@ -2,6 +2,9 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.quiz.app.CheatToQuestionState;
+import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
+
 
 public interface CheatContract {
 
@@ -9,6 +12,9 @@ public interface CheatContract {
     void injectPresenter(Presenter presenter);
 
     void displayCheatData(CheatViewModel viewModel);
+    void finishView();
+    String getFalseLabel();
+    String getTrueLabel();
   }
 
   interface Presenter {
@@ -22,19 +28,23 @@ public interface CheatContract {
   }
 
   interface Model {
+    /*
     String getYesLabel();
     String getNoLabel();
     String getConfirmationLabel();
     //String getFalseLabel();
     //String getTrueLabel();
     String getAnswerLabel(Boolean answer);
+    */
   }
 
   interface Router {
 
-    void navigateToQuestionScreen();
+    //void navigateToQuestionScreen();
     //void navigateToNextScreen();
-    void passDataToQuestionScreen(Boolean cheated);
-    Boolean getDataFromPreviousScreen();
+    //void passDataToQuestionScreen(Boolean cheated);
+    void passDataToQuestionScreen(CheatToQuestionState state);
+    QuestionToCheatState getDataFromQuestionScreen();
+    //Boolean getDataFromQuestionScreen();
   }
 }

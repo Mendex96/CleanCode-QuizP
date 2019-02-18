@@ -48,6 +48,10 @@ public class CheatActivity
       }
     });
 
+    yesButton.setText(getYesLabel());
+    noButton.setText(getNoLabel());
+    confirmationText.setText(getConfirmationLabel());
+
     // do the setup
     CheatScreen.configure(this);
 
@@ -66,13 +70,43 @@ public class CheatActivity
     Log.e(TAG, "displayCheatData()");
 
     // deal with the data
-    yesButton.setText(viewModel.yesLabel);
-    noButton.setText(viewModel.noLabel);
-
-    confirmationText.setText(viewModel.confirmationText);
     answerText.setText(viewModel.answerText);
+
+    //confirmationText.setText(viewModel.confirmationText);
+    //yesButton.setText(viewModel.yesLabel);
+    //noButton.setText(viewModel.noLabel);
 
     yesButton.setEnabled(viewModel.yesButton);
     noButton.setEnabled(viewModel.noButton);
   }
+
+  @Override
+  public void finishView(){
+    finish();
+  }
+
+  private String getYesLabel() {
+    return getResources().getString(R.string.yes_label);
+  }
+
+  private String getNoLabel() {
+    return getResources().getString(R.string.no_label);
+  }
+
+  private String getConfirmationLabel() {
+    return getResources().getString(R.string.confirmation_label);
+  }
+
+
+  @Override
+  public String getFalseLabel() {
+    return getResources().getString(R.string.false_label);
+  }
+
+
+  @Override
+  public String getTrueLabel() {
+    return getResources().getString(R.string.true_label);
+  }
+
 }

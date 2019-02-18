@@ -66,6 +66,11 @@ public class QuestionActivity
       }
     });
 
+    trueButton.setText(getTrueLabel());
+    falseButton.setText(getFalseLabel());
+    cheatButton.setText(getCheatLabel());
+    nextButton.setText(getNextLabel());
+
     // do the setup
     QuestionScreen.configure(this);
 
@@ -90,13 +95,15 @@ public class QuestionActivity
     Log.e(TAG, "displayQuestionData()");
 
     // deal with the data
+    questionText.setText(viewModel.questionText);
+    resultText.setText(viewModel.resultText);
+
+    /*
     trueButton.setText(viewModel.trueLabel);
     falseButton.setText(viewModel.falseLabel);
     cheatButton.setText(viewModel.cheatLabel);
     nextButton.setText(viewModel.nextLabel);
-
-    questionText.setText(viewModel.questionText);
-    resultText.setText(viewModel.resultText);
+    */
 
     trueButton.setEnabled(viewModel.trueButton);
     falseButton.setEnabled(viewModel.falseButton);
@@ -105,4 +112,33 @@ public class QuestionActivity
 
     //Log.e(TAG, "data: " + viewModel.data + ")");
   }
+
+
+  private String getCheatLabel() {
+    return getResources().getString(R.string.cheat_label);
+  }
+
+  private String getNextLabel() {
+    return getResources().getString(R.string.next_label);
+  }
+
+  private String getFalseLabel() {
+    return getResources().getString(R.string.false_label);
+  }
+
+  private String getTrueLabel() {
+    return getResources().getString(R.string.true_label);
+  }
+
+  @Override
+  public String getIncorrectLabel() {
+    return getResources().getString(R.string.incorrect_label);
+  }
+
+  @Override
+  public String getCorrectLabel() {
+    return getResources().getString(R.string.correct_label);
+  }
+
+
 }

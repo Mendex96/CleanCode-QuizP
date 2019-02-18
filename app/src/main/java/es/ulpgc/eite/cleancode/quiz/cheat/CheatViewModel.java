@@ -2,9 +2,8 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
 
 import android.arch.lifecycle.ViewModel;
 
-// include this library dependency in build.gradle file
-// implementation 'android.arch.lifecycle:extensions:1.1.1'
-public class CheatViewModel extends ViewModel {
+// public class CheatViewModel extends ViewModel {
+public class CheatViewModel {
 
   public String answerText = "";
   public String confirmationText;

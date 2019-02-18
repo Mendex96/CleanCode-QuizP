@@ -6,6 +6,10 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.quiz.app.AppMediator;
+import es.ulpgc.eite.cleancode.quiz.app.CheatToQuestionState;
+import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
+
 
 public class QuestionPresenter implements QuestionContract.Presenter {
 
@@ -13,8 +17,20 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   private WeakReference<QuestionContract.View> view;
   private QuestionViewModel viewModel;
+  private QuestionState state;
   private QuestionContract.Model model;
   private QuestionContract.Router router;
+
+  /*
+  public QuestionPresenter(QuestionViewModel viewModel) {
+    this.viewModel = viewModel;
+  }
+  */
+
+  public QuestionPresenter(QuestionState state) {
+    this.state = state;
+    viewModel = state;
+  }
 
   /*
   public WeakReference<QuestionContract.View> view;
@@ -32,11 +48,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   }
   */
 
+
+  /*
   public QuestionPresenter(WeakReference<FragmentActivity> context) {
     viewModel = ViewModelProviders
         .of(context.get())
         .get(QuestionViewModel.class);
   }
+  */
 
   @Override
   public void injectView(WeakReference<QuestionContract.View> view) {
@@ -55,48 +74,68 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   @Override
   public void fetchQuestionData() {
-    Log.e(TAG, "fetchQuestionData()");
+    //Log.e(TAG, "fetchQuestionData()");
 
     // set passed state
-    Boolean cheated = router.getDataFromCheatScreen();
-    if(cheated != null) {
+    CheatToQuestionState newState = router.getDataFromCheatScreen();
+    if(newState != null) {
         //viewModel.answerCheated = cheated;
         //nextButtonClicked();
         //return;
 
-        if(cheated){
+        if(newState.cheated){
           nextButtonClicked();
           return;
         }
     }
 
+    /*
+    Boolean cheated = router.getDataFromCheatScreen();
+    if(cheated != null) {
+      //viewModel.answerCheated = cheated;
+      //nextButtonClicked();
+      //return;
+
+      if(cheated){
+        nextButtonClicked();
+        return;
+      }
+    }
+    */
+
     // call the model
+    model.setCurrentIndex(state.quizIndex);
+    viewModel.questionText = model.getCurrentQuestion();
+    //viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
+
+    /*
     viewModel.trueLabel = model.getTrueLabel();
     viewModel.falseLabel = model.getFalseLabel();
     viewModel.cheatLabel = model.getCheatLabel();
     viewModel.nextLabel = model.getNextLabel();
-    //viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);
-    viewModel.questionText = model.getCurrentQuestion();
+    */
 
     view.get().displayQuestionData(viewModel);
 
   }
 
   private void updateQuestionData(boolean userAnswer) {
-    /*
+
     //boolean currentAnswer = model.getCurrentAnswer(viewModel.quizIndex);
     boolean currentAnswer = model.getCurrentAnswer();
 
     if(currentAnswer == userAnswer) {
-      viewModel.resultText = model.getCorrectLabel();
+      //viewModel.resultText = model.getCorrectLabel();
+      viewModel.resultText = view.get().getCorrectLabel();
     } else {
-      viewModel.resultText = model.getIncorrectLabel();
+      //viewModel.resultText = model.getIncorrectLabel();
+      viewModel.resultText = view.get().getIncorrectLabel();
     }
-    */
+
 
     //model.checkCurrentAnswer(userAnswer);
     //viewModel.resultText = model.getCurrentResult();
-    viewModel.resultText = model.getCurrentResult(userAnswer);
+    //viewModel.resultText = model.getCurrentResult(userAnswer);
 
     viewModel.falseButton = false;
     viewModel.trueButton = false;
@@ -135,7 +174,9 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public void cheatButtonClicked() {
     //boolean answer = model.getCurrentAnswer(viewModel.quizIndex);
     boolean answer = model.getCurrentAnswer();
-    router.passDataToCheatScreen(answer);
+    //router.passDataToCheatScreen(answer);
+    QuestionToCheatState state = new QuestionToCheatState(answer);
+    router.passDataToCheatScreen(state);
     router.navigateToCheatScreen();
   }
 
@@ -144,6 +185,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "nextButtonClicked()");
 
     //viewModel.quizIndex++;
+    state.quizIndex++;
     model.incrQuizIndex();
 
     //viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex);

@@ -2,12 +2,15 @@ package es.ulpgc.eite.cleancode.quiz.question;
 
 import android.arch.lifecycle.ViewModel;
 
-public class QuestionViewModel extends ViewModel {
+//public class QuestionViewModel extends ViewModel {
+public class QuestionViewModel {
 
+  /*
   public String falseLabel;
   public String trueLabel;
   public String cheatLabel;
   public String nextLabel;
+  */
 
   public String questionText;
   public String resultText = "";
