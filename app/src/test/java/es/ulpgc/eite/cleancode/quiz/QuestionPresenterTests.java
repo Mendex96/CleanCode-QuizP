@@ -35,12 +35,18 @@ public class QuestionPresenterTests {
 
     // When
     presenter.fetchQuestionData();
-    String question1 = activity.getQuestion();
-    String question2 = model.getCurrentQuestion();
-    String result = activity.getResult();
+    String activityQuestion = activity.getQuestion();
+    String modelQuestion = model.getCurrentQuestion();
+    String activityResult = activity.getResult();
 
     // Then
-    assertEquals("Get current question failed", question1, question2);
-    assertEquals("Get current result failed", result, "");
+    assertEquals(
+        "Get current question failed",
+        activityQuestion, modelQuestion
+    );
+    assertEquals(
+        "Get current result failed",
+        activityResult, ""
+    );
   }
 }
