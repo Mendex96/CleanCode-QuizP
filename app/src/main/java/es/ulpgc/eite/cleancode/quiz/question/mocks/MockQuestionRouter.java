@@ -6,6 +6,12 @@ import es.ulpgc.eite.cleancode.quiz.question.QuestionContract;
 
 public class MockQuestionRouter implements QuestionContract.Router  {
 
+  private QuestionToCheatState state;
+
+  public QuestionToCheatState getState() {
+    return state;
+  }
+
   @Override
   public void navigateToCheatScreen() {
 
@@ -13,7 +19,7 @@ public class MockQuestionRouter implements QuestionContract.Router  {
 
   @Override
   public void passDataToCheatScreen(QuestionToCheatState state) {
-
+    this.state = state;
   }
 
   @Override

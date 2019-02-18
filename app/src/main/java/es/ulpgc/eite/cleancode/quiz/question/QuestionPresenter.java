@@ -182,7 +182,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   @Override
   public void nextButtonClicked() {
-    Log.e(TAG, "nextButtonClicked()");
+    //Log.e(TAG, "nextButtonClicked()");
 
     //viewModel.quizIndex++;
     state.quizIndex++;
