@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class CheatActivityTest {
+public class CheatActivityInstrumentedTests {
 
     @Rule
     public ActivityTestRule<QuestionActivity> mActivityTestRule = new ActivityTestRule<>(QuestionActivity.class);

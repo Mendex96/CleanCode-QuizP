@@ -16,7 +16,7 @@ import es.ulpgc.eite.cleancode.quiz.question.mocks.MockQuestionRouter;
 
 import static org.junit.Assert.assertEquals;
 
-public class QuestionPresenterTests {
+public class QuestionPresenterUnitTests {
 
   @Test
   public void testNoClickAnyButton() {
