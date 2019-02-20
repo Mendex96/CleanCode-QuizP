@@ -5,8 +5,8 @@ import es.ulpgc.eite.cleancode.quiz.question.QuestionViewModel;
 
 public class MockQuestionActivity implements QuestionContract.View {
 
-  private String correctLabel = "Correct!";
-  private String incorrectLabel = "Incorrect!";
+  //private String correctLabel = "Correct!";
+  //private String incorrectLabel = "Incorrect!";
 
   private QuestionViewModel viewModel;
 
@@ -28,6 +28,7 @@ public class MockQuestionActivity implements QuestionContract.View {
     this.viewModel = viewModel;
   }
 
+  /*
   @Override
   public String getIncorrectLabel() {
     return incorrectLabel;
@@ -37,4 +38,5 @@ public class MockQuestionActivity implements QuestionContract.View {
   public String getCorrectLabel() {
     return correctLabel;
   }
+  */
 }

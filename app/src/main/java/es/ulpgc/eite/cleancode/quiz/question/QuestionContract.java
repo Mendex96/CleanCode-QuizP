@@ -12,8 +12,8 @@ public interface QuestionContract {
     void injectPresenter(Presenter presenter);
 
     void displayQuestionData(QuestionViewModel viewModel);
-    String getIncorrectLabel();
-    String getCorrectLabel();
+    //String getIncorrectLabel();
+    //String getCorrectLabel();
   }
 
   interface Presenter {
@@ -30,6 +30,9 @@ public interface QuestionContract {
   }
 
   interface Model {
+
+    String getCorrectLabel();
+    String getIncorrectLabel();
 
     String getCurrentQuestion();
     boolean getCurrentAnswer();

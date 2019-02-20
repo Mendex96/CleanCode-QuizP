@@ -62,10 +62,18 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     boolean currentAnswer = model.getCurrentAnswer();
 
+    /*
     if(currentAnswer == userAnswer) {
       viewModel.resultText = view.get().getCorrectLabel();
     } else {
       viewModel.resultText = view.get().getIncorrectLabel();
+    }
+    */
+
+    if(currentAnswer == userAnswer) {
+      viewModel.resultText = model.getCorrectLabel();
+    } else {
+      viewModel.resultText = model.getIncorrectLabel();
     }
 
     viewModel.falseButton = false;

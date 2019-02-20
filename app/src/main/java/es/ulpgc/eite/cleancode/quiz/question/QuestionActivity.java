@@ -98,19 +98,11 @@ public class QuestionActivity
     questionText.setText(viewModel.questionText);
     resultText.setText(viewModel.resultText);
 
-    /*
-    trueButton.setText(viewModel.trueLabel);
-    falseButton.setText(viewModel.falseLabel);
-    cheatButton.setText(viewModel.cheatLabel);
-    nextButton.setText(viewModel.nextLabel);
-    */
-
     trueButton.setEnabled(viewModel.trueButton);
     falseButton.setEnabled(viewModel.falseButton);
     cheatButton.setEnabled(viewModel.cheatButton);
     nextButton.setEnabled(viewModel.nextButton);
 
-    //Log.e(TAG, "data: " + viewModel.data + ")");
   }
 
 
@@ -130,6 +122,7 @@ public class QuestionActivity
     return getResources().getString(R.string.true_label);
   }
 
+  /*
   @Override
   public String getIncorrectLabel() {
     return getResources().getString(R.string.incorrect_label);
@@ -139,6 +132,6 @@ public class QuestionActivity
   public String getCorrectLabel() {
     return getResources().getString(R.string.correct_label);
   }
-
+  */
 
 }

@@ -75,10 +75,17 @@ public class QuestionPresenterUnitTests {
     String activityResult = activity.getResult();
 
     boolean modelAnswer = model.getCurrentAnswer();
+    String modelResult = model.getIncorrectLabel();
+    if(modelAnswer) {
+      modelResult = model.getCorrectLabel();
+    }
+
+    /*
     String modelResult = view.getIncorrectLabel();
     if(modelAnswer) {
       modelResult = view.getCorrectLabel();
     }
+    */
 
     // Then
     assertEquals(
@@ -116,10 +123,17 @@ public class QuestionPresenterUnitTests {
     String activityResult = activity.getResult();
 
     boolean modelAnswer = model.getCurrentAnswer();
+    String modelResult = model.getIncorrectLabel();
+    if(!modelAnswer) {
+      modelResult = model.getCorrectLabel();
+    }
+
+    /*
     String modelResult = view.getIncorrectLabel();
     if(!modelAnswer) {
       modelResult = view.getCorrectLabel();
     }
+    */
 
     // Then
     assertEquals(

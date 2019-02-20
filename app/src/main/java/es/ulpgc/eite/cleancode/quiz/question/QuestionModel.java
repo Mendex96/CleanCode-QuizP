@@ -6,48 +6,33 @@ public class QuestionModel implements QuestionContract.Model {
 
   public static String TAG = QuestionModel.class.getSimpleName();
 
+
   private AppRepository repository;
+  private String correctLabel, incorrectLabel;
+
 
   public QuestionModel(AppRepository repository) {
     this.repository = repository;
   }
 
-  /*
-  @Override
-  public String getCheatLabel() {
-    return context.get()
-        .getResources().getString(R.string.cheat_label);
-  }
 
   @Override
-  public String getNextLabel() {
-    return context.get()
-        .getResources().getString(R.string.next_label);
+  public String getCorrectLabel() {
+    return correctLabel;
   }
 
   @Override
-  public String getFalseLabel() {
-    return context.get()
-        .getResources().getString(R.string.false_label);
+  public String getIncorrectLabel() {
+    return incorrectLabel;
   }
 
-
-  private String getIncorrectLabel() {
-    return context.get()
-        .getResources().getString(R.string.incorrect_label);
+  public void setCorrectLabel(String label) {
+    correctLabel = label;
   }
 
-  private String getCorrectLabel() {
-    return context.get()
-        .getResources().getString(R.string.correct_label);
+  public void setIncorrectLabel(String label) {
+    incorrectLabel = label;
   }
-
-  @Override
-  public String getTrueLabel() {
-    return context.get()
-        .getResources().getString(R.string.true_label);
-  }
-  */
 
   @Override
   public String getCurrentQuestion() {
