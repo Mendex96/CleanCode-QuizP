@@ -28,23 +28,12 @@ public interface CheatContract {
   }
 
   interface Model {
-    /*
-    String getYesLabel();
-    String getNoLabel();
-    String getConfirmationLabel();
-    //String getFalseLabel();
-    //String getTrueLabel();
-    String getAnswerLabel(Boolean answer);
-    */
+
   }
 
   interface Router {
 
-    //void navigateToQuestionScreen();
-    //void navigateToNextScreen();
-    //void passDataToQuestionScreen(Boolean cheated);
     void passDataToQuestionScreen(CheatToQuestionState state);
     QuestionToCheatState getDataFromQuestionScreen();
-    //Boolean getDataFromQuestionScreen();
   }
 }

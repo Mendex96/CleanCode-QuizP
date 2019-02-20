@@ -1,8 +1,5 @@
 package es.ulpgc.eite.cleancode.quiz.question;
 
-import android.arch.lifecycle.ViewModel;
-
-//public class QuestionViewModel extends ViewModel {
 public class QuestionViewModel {
 
   /*
@@ -20,7 +17,5 @@ public class QuestionViewModel {
   public boolean cheatButton = true;
   public boolean nextButton = false;
 
-  //public Boolean answerCheated = false;
-  //public int quizIndex = 0;
 }
 

@@ -1,6 +1,5 @@
 package es.ulpgc.eite.cleancode.quiz.app;
 
-//public class QuizRepository extends Fragment implements AppRepository {
 public class QuizRepository implements AppRepository {
 
   private String[] quizQuestions = {
@@ -51,13 +50,6 @@ public class QuizRepository implements AppRepository {
 
   private int quizIndex = 0;
 
-  /*
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setRetainInstance(true);
-  }
-  */
 
   @Override
   public String getQuestion() {
@@ -69,17 +61,6 @@ public class QuizRepository implements AppRepository {
     return quizAnswers[quizIndex];
   }
 
-  /*
-  @Override
-  public String[] getQuestions() {
-    return quizQuestions;
-  }
-
-  @Override
-  public boolean[] getAnswers() {
-    return quizAnswers;
-  }
-  */
 
   @Override
   public void incrIndex() {

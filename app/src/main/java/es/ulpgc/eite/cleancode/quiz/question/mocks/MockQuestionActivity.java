@@ -5,10 +5,6 @@ import es.ulpgc.eite.cleancode.quiz.question.QuestionViewModel;
 
 public class MockQuestionActivity implements QuestionContract.View {
 
-  private String falseLabel = "False";
-  private String trueLabel = "True";
-  private String cheatLabel = "Cheat";
-  private String nextLabel = "Next";
   private String correctLabel = "Correct!";
   private String incorrectLabel = "Incorrect!";
 
