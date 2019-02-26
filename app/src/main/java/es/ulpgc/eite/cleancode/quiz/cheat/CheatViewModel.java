@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.quiz.cheat;
 
+import java.util.Objects;
+
 public class CheatViewModel {
 
   public String answerText = "";
@@ -7,5 +9,19 @@ public class CheatViewModel {
   public boolean yesButton = true;
   public boolean noButton = true;
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    CheatViewModel that = (CheatViewModel) obj;
+    return yesButton == that.yesButton &&
+        noButton == that.noButton &&
+        Objects.equals(answerText, that.answerText);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(answerText, yesButton, noButton);
+  }
 }
 

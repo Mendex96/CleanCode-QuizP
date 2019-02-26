@@ -42,11 +42,11 @@ public class QuestionPresenterUnitTests {
 
     // Then
     assertEquals(
-        "Get current question failed",
+        "TestNoClickAnyButton: Get current question failed",
         activityQuestion, modelQuestion
     );
     assertEquals(
-        "Get current result failed",
+        "TestNoClickAnyButton: Get current result failed",
         activityResult, ""
     );
   }
@@ -89,11 +89,11 @@ public class QuestionPresenterUnitTests {
 
     // Then
     assertEquals(
-        "Get current question failed",
+        "TestFirstClickTrueButton: Get current question failed",
         activityQuestion, modelQuestion
     );
     assertEquals(
-        "Get current result failed",
+        "TestFirstClickTrueButton: Get current result failed",
         activityResult, modelResult
     );
   }
@@ -137,11 +137,11 @@ public class QuestionPresenterUnitTests {
 
     // Then
     assertEquals(
-        "Get current question failed",
+        "TestFirstClickFalseButton: Get current question failed",
         activityQuestion, modelQuestion
     );
     assertEquals(
-        "Get current result failed",
+        "TestFirstClickFalseButton: Get current result failed",
         activityResult, modelResult
     );
   }
@@ -171,11 +171,11 @@ public class QuestionPresenterUnitTests {
 
     // Then
     assertEquals(
-        "Get current question failed",
+        "TestFirstClickNextButton: Get current question failed",
         activityQuestion, modelQuestion
     );
     assertEquals(
-        "Get current result failed",
+        "TestFirstClickNextButton: Get current result failed",
         activityResult, ""
     );
   }
@@ -208,15 +208,15 @@ public class QuestionPresenterUnitTests {
 
     // Then
     assertEquals(
-        "Get current question failed",
+        "TestFirstClickCheatButton: Get current question failed",
         activityQuestion, modelQuestion
     );
     assertEquals(
-        "Get current result failed",
+        "TestFirstClickCheatButton: Get current result failed",
         activityResult, ""
     );
     assertEquals(
-        "Get current state failed",
+        "TestFirstClickCheatButton: Get current state failed",
         presenterState.answer, routerState.answer
     );
   }
