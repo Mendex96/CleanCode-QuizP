@@ -31,5 +31,16 @@ public class QuestionViewModel {
         questionText, resultText, falseButton, trueButton, cheatButton, nextButton
     );
   }
+
+  @Override
+  public String toString() {
+    return
+        "questionText: " + questionText + ", " +
+        "resultText: " + resultText + ", " +
+        "trueButton: " + trueButton + ", " +
+        "falseButton: " + falseButton + ", " +
+        "cheatButton: " + cheatButton + ", " +
+        "nextButton: " + nextButton;
+  }
 }
 

@@ -23,5 +23,14 @@ public class CheatViewModel {
   public int hashCode() {
     return Objects.hash(answerText, yesButton, noButton);
   }
+
+
+  @Override
+  public String toString() {
+    return
+        "answerText: " + answerText + ", " +
+        "yesButton: " + yesButton + ", " +
+        "noButton: " + noButton ;
+  }
 }
 
