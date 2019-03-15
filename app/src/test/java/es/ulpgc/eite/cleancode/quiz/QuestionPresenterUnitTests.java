@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.quiz.app.AppRepository;
 import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
-import es.ulpgc.eite.cleancode.quiz.app.QuizRepository;
 import es.ulpgc.eite.cleancode.quiz.question.QuestionContract;
 import es.ulpgc.eite.cleancode.quiz.question.QuestionModel;
 import es.ulpgc.eite.cleancode.quiz.question.QuestionPresenter;
@@ -23,11 +21,10 @@ public class QuestionPresenterUnitTests {
 
     // Given
     QuestionState state = new QuestionState();
-    AppRepository repository = new QuizRepository();
     QuestionContract.Presenter presenter = new QuestionPresenter(state);
     MockQuestionActivity activity = new MockQuestionActivity();
     QuestionContract.View view = activity;
-    QuestionContract.Model model = new QuestionModel(repository);
+    QuestionContract.Model model = new QuestionModel();
     QuestionContract.Router router = new MockQuestionRouter();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
@@ -56,11 +53,10 @@ public class QuestionPresenterUnitTests {
 
     // Given
     QuestionState state = new QuestionState();
-    AppRepository repository = new QuizRepository();
     QuestionContract.Presenter presenter = new QuestionPresenter(state);
     MockQuestionActivity activity = new MockQuestionActivity();
     QuestionContract.View view = activity;
-    QuestionContract.Model model = new QuestionModel(repository);
+    QuestionContract.Model model = new QuestionModel();
     QuestionContract.Router router = new MockQuestionRouter();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
@@ -104,11 +100,10 @@ public class QuestionPresenterUnitTests {
 
     // Given
     QuestionState state = new QuestionState();
-    AppRepository repository = new QuizRepository();
     QuestionContract.Presenter presenter = new QuestionPresenter(state);
     MockQuestionActivity activity = new MockQuestionActivity();
     QuestionContract.View view = activity;
-    QuestionContract.Model model = new QuestionModel(repository);
+    QuestionContract.Model model = new QuestionModel();
     QuestionContract.Router router = new MockQuestionRouter();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
@@ -151,11 +146,10 @@ public class QuestionPresenterUnitTests {
 
     // Given
     QuestionState state = new QuestionState();
-    AppRepository repository = new QuizRepository();
     QuestionContract.Presenter presenter = new QuestionPresenter(state);
     MockQuestionActivity activity = new MockQuestionActivity();
     QuestionContract.View view = activity;
-    QuestionContract.Model model = new QuestionModel(repository);
+    QuestionContract.Model model = new QuestionModel();
     QuestionContract.Router router = new MockQuestionRouter();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
@@ -185,11 +179,10 @@ public class QuestionPresenterUnitTests {
 
     // Given
     QuestionState state = new QuestionState();
-    AppRepository repository = new QuizRepository();
     QuestionContract.Presenter presenter = new QuestionPresenter(state);
     MockQuestionActivity activity = new MockQuestionActivity();
     QuestionContract.View view = activity;
-    QuestionContract.Model model = new QuestionModel(repository);
+    QuestionContract.Model model = new QuestionModel();
     MockQuestionRouter router = new MockQuestionRouter();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
