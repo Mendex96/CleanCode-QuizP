@@ -21,7 +21,7 @@ public interface QuestionContract {
     void injectModel(Model model);
     void injectRouter(Router router);
 
-    void fetchQuestionData();
+    void onResumeCalled();
     void trueButtonClicked();
     void falseButtonClicked();
     void cheatButtonClicked();

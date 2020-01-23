@@ -22,7 +22,7 @@ public interface CheatContract {
     void injectModel(Model model);
     void injectRouter(Router router);
 
-    void fetchCheatData();
+    void onCreateCalled();
     void yesButtonClicked();
     void noButtonClicked();
   }

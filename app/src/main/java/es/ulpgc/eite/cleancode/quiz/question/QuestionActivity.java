@@ -83,7 +83,7 @@ public class QuestionActivity
     super.onResume();
 
     // do some work
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
   }
 
   @Override

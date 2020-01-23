@@ -32,7 +32,7 @@ public class QuestionPresenterUnitTests {
     activity.injectPresenter(presenter);
 
     // When
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
     String activityQuestion = activity.getQuestion();
     String modelQuestion = model.getCurrentQuestion();
     String activityResult = activity.getResult();
@@ -64,7 +64,7 @@ public class QuestionPresenterUnitTests {
     activity.injectPresenter(presenter);
 
     // When
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
     presenter.trueButtonClicked();
     String activityQuestion = activity.getQuestion();
     String modelQuestion = model.getCurrentQuestion();
@@ -111,7 +111,7 @@ public class QuestionPresenterUnitTests {
     activity.injectPresenter(presenter);
 
     // When
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
     presenter.falseButtonClicked();
     String activityQuestion = activity.getQuestion();
     String modelQuestion = model.getCurrentQuestion();
@@ -157,7 +157,7 @@ public class QuestionPresenterUnitTests {
     activity.injectPresenter(presenter);
 
     // When
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
     presenter.nextButtonClicked();
     String activityQuestion = activity.getQuestion();
     String modelQuestion = model.getCurrentQuestion();
@@ -190,7 +190,7 @@ public class QuestionPresenterUnitTests {
     activity.injectPresenter(presenter);
 
     // When
-    presenter.fetchQuestionData();
+    presenter.onResumeCalled();
     presenter.cheatButtonClicked();
     String activityQuestion = activity.getQuestion();
     String modelQuestion = model.getCurrentQuestion();

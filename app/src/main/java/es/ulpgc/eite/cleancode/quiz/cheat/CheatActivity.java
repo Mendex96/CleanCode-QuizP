@@ -57,7 +57,7 @@ public class CheatActivity
     CheatScreen.configure(this);
 
     // do some work
-    presenter.fetchCheatData();
+    presenter.onCreateCalled();
   }
 
 

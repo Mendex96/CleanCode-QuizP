@@ -13,11 +13,11 @@ public class CheatPresenter implements CheatContract.Presenter {
   public static String TAG = CheatPresenter.class.getSimpleName();
 
   private WeakReference<CheatContract.View> view;
-  private CheatViewModel viewModel;
+  private CheatState state;
   private CheatContract.Router router;
 
   public CheatPresenter(CheatState state) {
-    this.viewModel = state;
+    this.state = state;
   }
 
   @Override
@@ -36,10 +36,10 @@ public class CheatPresenter implements CheatContract.Presenter {
   }
 
   @Override
-  public void fetchCheatData() {
-    Log.e(TAG, "fetchCheatData()");
+  public void onCreateCalled() {
+    Log.e(TAG, "onCreateCalled()");
 
-    view.get().displayCheatData(viewModel);
+    view.get().displayCheatData(state);
 
   }
 
@@ -47,22 +47,22 @@ public class CheatPresenter implements CheatContract.Presenter {
   public void yesButtonClicked() {
 
     // set passed state
-    QuestionToCheatState state = router.getDataFromQuestionScreen();
-    if(state != null) {
+    QuestionToCheatState savedState = router.getDataFromQuestionScreen();
+    if(savedState != null) {
 
       CheatToQuestionState newState = new CheatToQuestionState(true);
       router.passDataToQuestionScreen(newState);
 
-      if(state.answer) {
-        viewModel.answerText = view.get().getTrueLabel();
+      if(savedState.answer) {
+        state.answerText = view.get().getTrueLabel();
       } else {
-        viewModel.answerText = view.get().getFalseLabel();
+        state.answerText = view.get().getFalseLabel();
       }
 
-      viewModel.yesButton = false;
-      viewModel.noButton = false;
+      state.yesButton = false;
+      state.noButton = false;
 
-      view.get().displayCheatData(viewModel);
+      view.get().displayCheatData(state);
     }
   }
 
