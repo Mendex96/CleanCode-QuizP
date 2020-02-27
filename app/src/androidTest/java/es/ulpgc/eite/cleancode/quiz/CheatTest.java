@@ -26,7 +26,7 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class CheatActivityInstrumentedTests {
+public class CheatTest {
 
     @Rule
     public ActivityTestRule<QuestionActivity> mActivityTestRule =
@@ -38,7 +38,8 @@ public class CheatActivityInstrumentedTests {
         new ActivityTestRule<>(CheatActivity.class);
 
     @Test
-    public void cheatActivityTest() {
+    public void instrumentedTest() {
+
         /*try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

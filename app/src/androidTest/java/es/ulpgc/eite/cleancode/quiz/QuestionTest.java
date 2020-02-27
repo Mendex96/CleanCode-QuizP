@@ -24,14 +24,15 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class QuestionActivityInstrumentedTests {
+public class QuestionTest {
 
   @Rule
   public ActivityTestRule<QuestionActivity> mActivityTestRule =
       new ActivityTestRule<>(QuestionActivity.class);
 
   @Test
-  public void questionActivityTest() {
+  public void instrumentedTest() {
+
     ViewInteraction textView = onView(allOf(
         withId(R.id.questionText),
         withText("Christian Bale played Batman in 'The Dark Knight Rises'?"),
