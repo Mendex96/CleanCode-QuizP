@@ -14,6 +14,8 @@ public interface QuestionContract {
     void displayQuestionData(QuestionViewModel viewModel);
     //String getIncorrectLabel();
     //String getCorrectLabel();
+    void navigateToCheatScreen();
+
   }
 
   interface Presenter {
@@ -43,7 +45,6 @@ public interface QuestionContract {
 
   interface Router {
 
-    void navigateToCheatScreen();
     void passDataToCheatScreen(QuestionToCheatState state);
     CheatToQuestionState getDataFromCheatScreen();
   }
