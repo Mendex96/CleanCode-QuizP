@@ -23,7 +23,7 @@ public class AppMediator {
 
 
   public static AppMediator getInstance() {
-    if(INSTANCE ==null){
+    if(INSTANCE == null){
       INSTANCE = new AppMediator();
     }
 
