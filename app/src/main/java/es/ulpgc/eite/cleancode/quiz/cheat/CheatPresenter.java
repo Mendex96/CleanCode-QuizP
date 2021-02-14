@@ -28,12 +28,6 @@ public class CheatPresenter implements CheatContract.Presenter {
   }
 
   @Override
-  public void injectModel(CheatContract.Model model) {
-    // not implemented
-  }
-
-
-  @Override
   public void onCreateCalled() {
     Log.e(TAG, "onCreateCalled()");
 

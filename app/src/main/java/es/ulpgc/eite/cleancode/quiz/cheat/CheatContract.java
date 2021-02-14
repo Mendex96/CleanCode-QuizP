@@ -16,14 +16,10 @@ public interface CheatContract {
 
   interface Presenter {
     void injectView(WeakReference<View> view);
-    void injectModel(Model model);
 
     void onCreateCalled();
     void yesButtonClicked();
     void noButtonClicked();
   }
 
-  interface Model {
-
-  }
 }
