@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.quiz.question;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.quiz.app.AppMediator;
 import es.ulpgc.eite.cleancode.quiz.app.CheatToQuestionState;
 import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
 
@@ -13,11 +14,19 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   private WeakReference<QuestionContract.View> view;
   private QuestionState state;
   private QuestionContract.Model model;
-  private QuestionContract.Router router;
+  //private QuestionContract.Router router;
+  private AppMediator mediator;
 
+  public QuestionPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getQuestionState();
+  }
+
+  /*
   public QuestionPresenter(QuestionState state) {
     this.state = state;
   }
+  */
 
   @Override
   public void injectView(WeakReference<QuestionContract.View> view) {
@@ -29,17 +38,20 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     this.model = model;
   }
 
+  /*
   @Override
   public void injectRouter(QuestionContract.Router router) {
     this.router = router;
   }
+  */
 
   @Override
   public void onResumeCalled() {
     //Log.e(TAG, "onResumeCalled()");
 
     // set passed state
-    CheatToQuestionState savedState = router.getDataFromCheatScreen();
+    CheatToQuestionState savedState = getDataFromCheatScreen();
+    //CheatToQuestionState savedState = router.getDataFromCheatScreen();
     if(savedState != null) {
 
         if(savedState.cheated){
@@ -102,7 +114,8 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public void cheatButtonClicked() {
     boolean answer = model.getCurrentAnswer();
     QuestionToCheatState newState = new QuestionToCheatState(answer);
-    router.passDataToCheatScreen(newState);
+    //router.passDataToCheatScreen(newState);
+    passDataToCheatScreen(newState);
     //router.navigateToCheatScreen();
     view.get().navigateToCheatScreen();
   }
@@ -123,6 +136,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     state.nextButton = false;
 
     view.get().displayQuestionData(state);
+  }
+
+  private void passDataToCheatScreen(QuestionToCheatState state) {
+    mediator.setQuestionToCheatState(state);
+  }
+
+  private CheatToQuestionState getDataFromCheatScreen() {
+    return mediator.getCheatToQuestionState();
   }
 
 }

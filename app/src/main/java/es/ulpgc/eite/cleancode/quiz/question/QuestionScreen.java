@@ -19,10 +19,11 @@ public class QuestionScreen {
 
     //AppMediator mediator = (AppMediator) context.get().getApplication();
     AppMediator mediator = AppMediator.getInstance();
-    QuestionState state = mediator.getQuestionState();
+    //QuestionState state = mediator.getQuestionState();
 
-    QuestionContract.Router router = new QuestionRouter(mediator);
-    QuestionContract.Presenter presenter = new QuestionPresenter(state);
+    //QuestionContract.Router router = new QuestionRouter(mediator);
+    //QuestionContract.Presenter presenter = new QuestionPresenter(state);
+    QuestionContract.Presenter presenter = new QuestionPresenter(mediator);
 
     QuestionModel model = new QuestionModel();
     model.setCorrectLabel(context.get().getString(R.string.correct_label));
@@ -30,7 +31,7 @@ public class QuestionScreen {
 
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
-    presenter.injectRouter(router);
+    //presenter.injectRouter(router);
     view.injectPresenter(presenter);
 
   }

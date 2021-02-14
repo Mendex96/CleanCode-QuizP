@@ -17,12 +17,13 @@ public class CheatScreen {
 
     //AppMediator mediator = (AppMediator) context.get().getApplication();
     AppMediator mediator = AppMediator.getInstance();
-    CheatState state = mediator.getCheatState();
+    //CheatState state = mediator.getCheatState();
 
-    CheatContract.Router router = new CheatRouter(mediator);
-    CheatContract.Presenter presenter = new CheatPresenter(state);
+    //CheatContract.Router router = new CheatRouter(mediator);
+    //CheatContract.Presenter presenter = new CheatPresenter(state);
+    CheatContract.Presenter presenter = new CheatPresenter(mediator);
     presenter.injectView(new WeakReference<>(view));
-    presenter.injectRouter(router);
+    //presenter.injectRouter(router);
     view.injectPresenter(presenter);
 
   }
