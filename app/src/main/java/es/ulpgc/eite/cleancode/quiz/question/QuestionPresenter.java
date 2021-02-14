@@ -14,19 +14,12 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   private WeakReference<QuestionContract.View> view;
   private QuestionState state;
   private QuestionContract.Model model;
-  //private QuestionContract.Router router;
   private AppMediator mediator;
 
   public QuestionPresenter(AppMediator mediator) {
     this.mediator = mediator;
     state = mediator.getQuestionState();
   }
-
-  /*
-  public QuestionPresenter(QuestionState state) {
-    this.state = state;
-  }
-  */
 
   @Override
   public void injectView(WeakReference<QuestionContract.View> view) {
@@ -38,12 +31,6 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     this.model = model;
   }
 
-  /*
-  @Override
-  public void injectRouter(QuestionContract.Router router) {
-    this.router = router;
-  }
-  */
 
   @Override
   public void onResumeCalled() {
@@ -51,7 +38,6 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     // set passed state
     CheatToQuestionState savedState = getDataFromCheatScreen();
-    //CheatToQuestionState savedState = router.getDataFromCheatScreen();
     if(savedState != null) {
 
         if(savedState.cheated){
@@ -71,14 +57,6 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   private void updateQuestionData(boolean userAnswer) {
 
     boolean currentAnswer = model.getCurrentAnswer();
-
-    /*
-    if(currentAnswer == userAnswer) {
-      state.resultText = view.get().getCorrectLabel();
-    } else {
-      state.resultText = view.get().getIncorrectLabel();
-    }
-    */
 
     if(currentAnswer == userAnswer) {
       state.resultText = model.getCorrectLabel();
@@ -114,9 +92,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public void cheatButtonClicked() {
     boolean answer = model.getCurrentAnswer();
     QuestionToCheatState newState = new QuestionToCheatState(answer);
-    //router.passDataToCheatScreen(newState);
     passDataToCheatScreen(newState);
-    //router.navigateToCheatScreen();
     view.get().navigateToCheatScreen();
   }
 

@@ -17,7 +17,6 @@ public interface CheatContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
-    //void injectRouter(Router router);
 
     void onCreateCalled();
     void yesButtonClicked();
@@ -27,12 +26,4 @@ public interface CheatContract {
   interface Model {
 
   }
-
-  /*
-  interface Router {
-
-    void passDataToQuestionScreen(CheatToQuestionState state);
-    QuestionToCheatState getDataFromQuestionScreen();
-  }
-  */
 }

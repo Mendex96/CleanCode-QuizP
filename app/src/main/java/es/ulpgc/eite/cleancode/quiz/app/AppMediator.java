@@ -30,14 +30,6 @@ public class AppMediator {
     return INSTANCE;
   }
 
-//  @Override
-//  public void onCreate() {
-//    super.onCreate();
-//
-//    questionState = new QuestionState();
-//    cheatState = new CheatState();
-//  }
-
   public CheatState getCheatState() {
     return cheatState;
   }
