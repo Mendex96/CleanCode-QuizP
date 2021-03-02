@@ -97,7 +97,7 @@ public class QuestionActivity
   @Override
   public void navigateToCheatScreen() {
     Intent intent = new Intent(this, CheatActivity.class);
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
   }
 
