@@ -10,14 +10,14 @@ import androidx.test.uiautomator.UiDevice;
 
 import org.junit.Rule;
 
-import es.ulpgc.eite.cleancode.quiz.R;
-
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import es.ulpgc.eite.cleancode.quiz.R;
+import es.ulpgc.eite.cleancode.quiz.app.AppMediator;
 import es.ulpgc.eite.cleancode.quiz.question.QuestionActivity;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -43,6 +43,8 @@ public class QuizSteps {
 
   @Before("@quiz-feature")
   public void setUp() {
+    AppMediator.resetInstance();
+
     testRule.launchActivity(new Intent());
     activity = testRule.getActivity();
   }

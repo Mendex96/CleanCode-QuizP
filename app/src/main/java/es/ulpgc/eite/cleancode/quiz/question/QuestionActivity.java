@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.quiz.R;
-import es.ulpgc.eite.cleancode.quiz.app.AppMediator;
 import es.ulpgc.eite.cleancode.quiz.cheat.CheatActivity;
 
 
@@ -75,9 +74,11 @@ public class QuestionActivity
     cheatButton.setText(getCheatLabel());
     nextButton.setText(getNextLabel());
 
+    /*
     if(savedInstanceState == null) {
       AppMediator.resetInstance();
     }
+    */
 
     // do the setup
     QuestionScreen.configure(this);
