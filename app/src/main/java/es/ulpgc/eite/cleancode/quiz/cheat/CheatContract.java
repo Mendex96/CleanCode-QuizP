@@ -20,6 +20,8 @@ public interface CheatContract {
     void onCreateCalled();
     void yesButtonClicked();
     void noButtonClicked();
+
+    void onResumeCalled();
   }
 
 }

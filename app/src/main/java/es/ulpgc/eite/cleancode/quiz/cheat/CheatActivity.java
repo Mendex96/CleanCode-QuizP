@@ -62,6 +62,15 @@ public class CheatActivity
 
 
   @Override
+  protected void onResume() {
+    super.onResume();
+
+    // do some work
+    presenter.onResumeCalled();
+  }
+
+
+  @Override
   public void injectPresenter(CheatContract.Presenter presenter) {
     this.presenter = presenter;
   }

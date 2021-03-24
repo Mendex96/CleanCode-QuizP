@@ -31,9 +31,16 @@ public class CheatPresenter implements CheatContract.Presenter {
   public void onCreateCalled() {
     Log.e(TAG, "onCreateCalled()");
 
-    view.get().displayCheatData(state);
-
+    mediator.resetCheatState();
   }
+
+  @Override
+  public void onResumeCalled() {
+    Log.e(TAG, "onResumeCalled()");
+
+    view.get().displayCheatData(state);
+  }
+
 
   @Override
   public void yesButtonClicked() {
@@ -64,6 +71,7 @@ public class CheatPresenter implements CheatContract.Presenter {
     passDataToQuestionScreen(newState);
     view.get().finishView();
   }
+
 
   private void passDataToQuestionScreen(CheatToQuestionState state) {
     mediator.setCheatToQuestionState(state);
