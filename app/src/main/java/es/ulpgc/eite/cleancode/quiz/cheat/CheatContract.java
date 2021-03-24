@@ -17,11 +17,12 @@ public interface CheatContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
 
-    void onCreateCalled();
     void yesButtonClicked();
     void noButtonClicked();
 
-    void onResumeCalled();
+    void onCreateCalled();
+    //void onResumeCalled();
+    void onDestroyCalled();
   }
 
 }

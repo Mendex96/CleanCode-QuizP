@@ -60,7 +60,7 @@ public class CheatActivity
     presenter.onCreateCalled();
   }
 
-
+  /*
   @Override
   protected void onResume() {
     super.onResume();
@@ -68,7 +68,14 @@ public class CheatActivity
     // do some work
     presenter.onResumeCalled();
   }
+  */
 
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+
+    presenter.onDestroyCalled();
+  }
 
   @Override
   public void injectPresenter(CheatContract.Presenter presenter) {

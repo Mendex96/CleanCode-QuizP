@@ -23,10 +23,21 @@ public class CheatPresenter implements CheatContract.Presenter {
   }
 
   @Override
-  public void injectView(WeakReference<CheatContract.View> view) {
-    this.view = view;
+  public void onCreateCalled() {
+    Log.e(TAG, "onCreateCalled()");
+
+    view.get().displayCheatData(state);
   }
 
+  @Override
+  public void onDestroyCalled() {
+    Log.e(TAG, "onDestroyCalled()");
+
+    // Reset current state in Mediator
+    mediator.resetCheatState();
+  }
+
+  /*
   @Override
   public void onCreateCalled() {
     Log.e(TAG, "onCreateCalled()");
@@ -40,7 +51,7 @@ public class CheatPresenter implements CheatContract.Presenter {
 
     view.get().displayCheatData(state);
   }
-
+  */
 
   @Override
   public void yesButtonClicked() {
@@ -81,4 +92,8 @@ public class CheatPresenter implements CheatContract.Presenter {
     return mediator.getQuestionToCheatState();
   }
 
+  @Override
+  public void injectView(WeakReference<CheatContract.View> view) {
+    this.view = view;
+  }
 }

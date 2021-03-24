@@ -21,16 +21,6 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     state = mediator.getQuestionState();
   }
 
-  @Override
-  public void injectView(WeakReference<QuestionContract.View> view) {
-    this.view = view;
-  }
-
-  @Override
-  public void injectModel(QuestionContract.Model model) {
-    this.model = model;
-  }
-
 
   @Override
   public void onResumeCalled() {
@@ -120,6 +110,16 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
   private CheatToQuestionState getDataFromCheatScreen() {
     return mediator.getCheatToQuestionState();
+  }
+
+  @Override
+  public void injectView(WeakReference<QuestionContract.View> view) {
+    this.view = view;
+  }
+
+  @Override
+  public void injectModel(QuestionContract.Model model) {
+    this.model = model;
   }
 
 }
