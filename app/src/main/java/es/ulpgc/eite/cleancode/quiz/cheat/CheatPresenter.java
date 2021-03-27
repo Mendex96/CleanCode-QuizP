@@ -14,6 +14,7 @@ public class CheatPresenter implements CheatContract.Presenter {
   public static String TAG = CheatPresenter.class.getSimpleName();
 
   private WeakReference<CheatContract.View> view;
+  private CheatContract.Model model;
   private CheatState state;
   private AppMediator mediator;
 
@@ -63,10 +64,18 @@ public class CheatPresenter implements CheatContract.Presenter {
       CheatToQuestionState newState = new CheatToQuestionState(true);
       passDataToQuestionScreen(newState);
 
+      /*
       if(savedState.answer) {
         state.answerText = view.get().getTrueLabel();
       } else {
         state.answerText = view.get().getFalseLabel();
+      }
+      */
+
+      if(savedState.answer) {
+        state.answerText = model.getTrueLabel();
+      } else {
+        state.answerText = model.getFalseLabel();
       }
 
       state.yesButton = false;
@@ -95,5 +104,10 @@ public class CheatPresenter implements CheatContract.Presenter {
   @Override
   public void injectView(WeakReference<CheatContract.View> view) {
     this.view = view;
+  }
+
+  @Override
+  public void injectModel(CheatContract.Model model) {
+    this.model = model;
   }
 }

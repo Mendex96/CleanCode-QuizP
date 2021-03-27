@@ -110,7 +110,7 @@ public class CheatActivity
     return getResources().getString(R.string.confirmation_label);
   }
 
-
+  /*
   @Override
   public String getFalseLabel() {
     return getResources().getString(R.string.false_label);
@@ -121,5 +121,5 @@ public class CheatActivity
   public String getTrueLabel() {
     return getResources().getString(R.string.true_label);
   }
-
+  */
 }
