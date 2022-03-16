@@ -16,7 +16,8 @@ import es.ulpgc.eite.cleancode.quiz.cheat.CheatActivity;
 public class QuestionActivity
     extends AppCompatActivity implements QuestionContract.View {
 
-  public static String TAG = QuestionActivity.class.getSimpleName();
+  //public static String TAG = QuestionActivity.class.getSimpleName();
+  public static String TAG = "Quiz.QuestionActivity";
 
   QuestionContract.Presenter presenter;
 
@@ -27,6 +28,7 @@ public class QuestionActivity
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_question);
+    Log.e(TAG, "onCreate()");
 
     getSupportActionBar().setTitle(R.string.question_screen_title);
 
@@ -89,10 +91,30 @@ public class QuestionActivity
   @Override
   protected void onResume() {
     super.onResume();
+    Log.e(TAG, "onResume()");
 
     // do some work
     presenter.onResumeCalled();
   }
+
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    Log.e(TAG, "onPause()");
+
+  }
+
+
+
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    Log.e(TAG, "onDestroy()");
+
+  }
+
 
 
   @Override
@@ -109,7 +131,7 @@ public class QuestionActivity
 
   @Override
   public void displayQuestionData(QuestionViewModel viewModel) {
-    Log.e(TAG, "displayQuestionData()");
+    //Log.e(TAG, "displayQuestionData()");
 
     // deal with the data
     questionText.setText(viewModel.questionText);

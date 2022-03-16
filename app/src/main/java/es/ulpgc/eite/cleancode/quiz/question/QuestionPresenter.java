@@ -9,7 +9,8 @@ import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
 
 public class QuestionPresenter implements QuestionContract.Presenter {
 
-  public static String TAG = QuestionPresenter.class.getSimpleName();
+  //public static String TAG = QuestionPresenter.class.getSimpleName();
+  public static String TAG = "Quiz.QuestionPresenter";
 
   private WeakReference<QuestionContract.View> view;
   private QuestionState state;

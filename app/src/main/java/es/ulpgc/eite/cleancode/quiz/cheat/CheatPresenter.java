@@ -11,7 +11,8 @@ import es.ulpgc.eite.cleancode.quiz.app.QuestionToCheatState;
 
 public class CheatPresenter implements CheatContract.Presenter {
 
-  public static String TAG = CheatPresenter.class.getSimpleName();
+  //public static String TAG = CheatPresenter.class.getSimpleName();
+  public static String TAG = "Quiz.CheatPresenter";
 
   private WeakReference<CheatContract.View> view;
   private CheatContract.Model model;
@@ -23,13 +24,24 @@ public class CheatPresenter implements CheatContract.Presenter {
     state = mediator.getCheatState();
   }
 
+  /*
   @Override
   public void onCreateCalled() {
     Log.e(TAG, "onCreateCalled()");
 
     view.get().displayCheatData(state);
+
+  }
+  */
+
+  @Override
+  public void onResumeCalled() {
+    Log.e(TAG, "onResumeCalled()");
+
+    view.get().displayCheatData(state);
   }
 
+  /*
   @Override
   public void onDestroyCalled() {
     Log.e(TAG, "onDestroyCalled()");
@@ -37,6 +49,7 @@ public class CheatPresenter implements CheatContract.Presenter {
     // Reset current state in Mediator
     mediator.resetCheatState();
   }
+  */
 
   /*
   @Override

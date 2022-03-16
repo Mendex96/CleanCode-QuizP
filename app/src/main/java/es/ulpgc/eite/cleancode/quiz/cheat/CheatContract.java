@@ -2,8 +2,6 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.quiz.question.QuestionContract;
-
 
 public interface CheatContract {
 
@@ -23,9 +21,9 @@ public interface CheatContract {
     void yesButtonClicked();
     void noButtonClicked();
 
-    void onCreateCalled();
-    //void onResumeCalled();
-    void onDestroyCalled();
+    //void onCreateCalled();
+    void onResumeCalled();
+    //void onDestroyCalled();
   }
 
   interface Model {

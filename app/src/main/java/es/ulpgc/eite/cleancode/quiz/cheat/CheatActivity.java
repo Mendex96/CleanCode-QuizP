@@ -14,7 +14,8 @@ import es.ulpgc.eite.cleancode.quiz.R;
 public class CheatActivity
     extends AppCompatActivity implements CheatContract.View {
 
-  public static String TAG = CheatActivity.class.getSimpleName();
+  //public static String TAG = CheatActivity.class.getSimpleName();
+  public static String TAG = "Quiz.CheatActivity";
 
   CheatContract.Presenter presenter;
 
@@ -56,11 +57,13 @@ public class CheatActivity
     // do the setup
     CheatScreen.configure(this);
 
+    /*
     // do some work
     presenter.onCreateCalled();
+    */
   }
 
-  /*
+
   @Override
   protected void onResume() {
     super.onResume();
@@ -68,13 +71,13 @@ public class CheatActivity
     // do some work
     presenter.onResumeCalled();
   }
-  */
+
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
 
-    presenter.onDestroyCalled();
+    //presenter.onDestroyCalled();
   }
 
   @Override
