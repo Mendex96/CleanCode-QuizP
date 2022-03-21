@@ -2,8 +2,8 @@ package es.ulpgc.eite.cleancode.quiz.question;
 
 public class QuestionModel implements QuestionContract.Model {
 
-  public static String TAG = QuestionModel.class.getSimpleName();
-
+  //public static String TAG = QuestionModel.class.getSimpleName();
+  public static String TAG = "Quiz.QuestionModel";
 
   private String[] quizQuestions = {
       "Christian Bale played Batman in 'The Dark Knight Rises'?", // 1

@@ -5,7 +5,8 @@ package es.ulpgc.eite.cleancode.quiz.cheat;
  */
 public class CheatModel implements CheatContract.Model {
 
-  public static String TAG = CheatModel.class.getSimpleName();
+  //public static String TAG = CheatModel.class.getSimpleName();
+  public static String TAG = "Quiz.CheatModel";
 
   private String falseLabel, trueLabel;
 
